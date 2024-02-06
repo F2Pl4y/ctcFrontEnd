@@ -1,0 +1,107 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="512315259861-4j854iga19cvp9346j99kmad5t28slro.apps.googleusercontent.com">
+</head>
+
+<body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
+    <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+    <script>
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); 
+        }
+    </script>
+</body>
+
+</html> -->
+
+<html>
+
+<head>
+    <meta name="google-signin-client_id" content="512315259861-4j854iga19cvp9346j99kmad5t28slro.apps.googleusercontent.com">
+</head>
+
+<body>
+    <div id="my-signin2"></div>
+    <script>
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script>
+        /**
+ * The Sign-In client object.
+ */
+        var auth2;
+
+        /**
+         * Initializes the Sign-In client.
+         */
+        var initClient = function () {
+            gapi.load('auth2', function () {
+                /**
+                 * Retrieve the singleton for the GoogleAuth library and set up the
+                 * client.
+                 */
+                auth2 = gapi.auth2.init({
+                    client_id: '512315259861-4j854iga19cvp9346j99kmad5t28slro.apps.googleusercontent.com'
+                });
+
+                // Attach the click handler to the sign-in button
+                auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
+            });
+        };
+
+        /**
+         * Handle successful sign-ins.
+         */
+        var onSuccess = function (user) {
+            console.log('Signed in as ' + user.getBasicProfile().getName());
+        };
+
+        /**
+         * Handle sign-in failures.
+         */
+        var onFailure = function (error) {
+            console.log(error);
+        };
+    </script>
+</body>
+
+</html>

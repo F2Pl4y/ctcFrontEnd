@@ -1,0 +1,24 @@
+.tablePrec1,
+.tablePrec2 tbody tr {
+  text-align: center;
+}
+.tablePrec1,
+.tablePrec2 thead {
+  text-align: center;
+}
+.seleccionable {
+  border: 2px solid transparent;
+  /* Borde inicial transparente */
+}
+
+.seleccionada {
+  border: 2px solid red;
+  /* Borde rojo para indicar la selección */
+}
+
+#map1,
+#map2 {
+  --var: 300px;
+  height: calc(var(--var));
+  max-width: calc(var(--var) * 1.5);
+}

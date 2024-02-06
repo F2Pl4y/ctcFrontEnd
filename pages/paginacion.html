@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../css/animate.css" />
+  <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="../css/magnific-popup.css" />
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css" />
+  <link rel="stylesheet" href="../css/jquery.timepicker.css" />
+  <link rel="stylesheet" href="../css/flaticon.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>Paginación de Tabla</title>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <table class="table tablePrec">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col mx-auto">#</th>
+          <th scope="col mx-auto">PARTIDA</th>
+          <th scope="col mx-auto">LLEGADA</th>
+          <th scope="col mx-auto">HORA DE PARTIDA</th>
+          <th scope="col mx-auto">HORA DE LLEGADA</th>
+          <th scope="col mx-auto">COSTO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas de datos -->
+        <!-- ... Añade más filas según tus necesidades ... -->
+        <tr>
+          <th scope="row">1</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">8</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+        <tr>
+          <th scope="row">9</th>
+          <td>Lima</td>
+          <td>Cañete</td>
+          <td>08:30 am</td>
+          <td>12:30 pm</td>
+          <td>55.5</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="block-27">
+            <ul class="" id="paginationButtons">
+              <!-- Botones de paginación se generarán dinámicamente aquí -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/jquery.animateNumber.min.js"></script>
+  <script src="../js/bootstrap-datepicker.js"></script>
+  <script src="../js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="../js/google-map.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="https://kit.fontawesome.com/742049c140.js" crossorigin="anonymous"></script>
+
+  <script>
+    const filasPorPagina = 3;
+
+    // Genera dinámicamente los botones de paginación
+    var numFilas = document.querySelectorAll(".tablePrec tbody tr").length;
+    var numPaginas = Math.ceil(numFilas / filasPorPagina);
+
+    var paginationButtons = document.getElementById("paginationButtons");
+
+    // Agrega los botones de páginas
+    for (var i = 0; i < numPaginas; i++) {
+      var li = document.createElement("li");
+      li.innerHTML =
+        i === 0
+          ? '<a type="button" onclick="mostrarFilas(' +
+          i +
+          ')">' +
+          (i + 1) +
+          "</a>"
+          : '<a type="button" onclick="mostrarFilas(' +
+          i +
+          ')">' +
+          (i + 1) +
+          "</a>";
+      paginationButtons.appendChild(li);
+    }
+
+    function mostrarFilas(pagina) {
+      // Oculta todas las filas
+      document
+        .querySelectorAll(".tablePrec tbody tr")
+        .forEach(function (fila) {
+          fila.style.display = "none";
+        });
+
+      // Calcula el rango de filas que se mostrarán
+      var inicio = pagina * filasPorPagina;
+      var fin = inicio + filasPorPagina;
+
+      // Muestra las filas correspondientes
+      document
+        .querySelectorAll(".tablePrec tbody tr")
+        .forEach(function (fila, indice) {
+          if (indice >= inicio && indice < fin) {
+            fila.style.display = "";
+          }
+        });
+
+      // Actualiza el estado activo del botón de paginación
+      document.querySelectorAll("ul li").forEach(function (item) {
+        item.classList.remove("active");
+      });
+
+      document
+        .querySelector("ul li:nth-child(" + (pagina + 1) + ")")
+        .classList.add("active");
+    }
+
+    // Muestra las primeras filas al cargar la página
+    mostrarFilas(0);
+  </script>
+</body>
+
+</html>

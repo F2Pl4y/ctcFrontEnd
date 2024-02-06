@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>¡Chapa Tu Carro!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="../css/animate.css" />
+
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../css/magnific-popup.css" />
+
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="../css/jquery.timepicker.css" />
+
+    <link rel="stylesheet" href="../css/flaticon.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!--diseño  adicional -->
+    <link rel="stylesheet" href="../css/style2.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-sharp fa-solid fa-car"></i> ¡Chapa Tu Carro!<span></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="../index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../about.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../destination.html" class="nav-link">Viajes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../contact.html" class="nav-link">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../login.html" class="nav-link">Iniciar Sesion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap js-fullheight" style="background-image: url('../images/bg_5.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+                <div class="col-md-7 ftco-animate">
+                    <span class="subheading">Bienvenido a ¡Chapa Tu Carro!</span>
+                    <h1 class="mb-4">Viajes seguros con Nosotros</h1>
+                    <p class="caps">
+                        Viaje a cualquier rincón del Peru rapido y seguro
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <section class="ftco-section ftco-no-pb ftco-no-pt">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="ftco-search d-flex justify-content-center">
+            <div class="card" style="width: 18rem">
+              <img src="https://images.prismic.io/obikares/c652aba0-f7a5-48b3-ab0f-b9d5293f417d_conductor-vehiculo.jpg?auto=compress,format" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">¿A dónde vamos?</p>
+                <a href="../pages/buscarCliA.html" class="btn btn-primary col">viajar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+    <section class="ftco-section ftco-no-pb">
+        <div class="container">
+            <div class="col-md-12">
+                <form action="" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <a class="" value="" placeholder="">Detalle del vehículo</a>
+                        </div>
+
+
+
+                        <!-- <label for="exampleFormControlFile1">Example file input</label> -->
+                        <div class="col-md-8 mb-3 d-flex justify-content-center align-items-center">
+                            <img id="imagePreview" class="img-fluid" alt="adjuntar imagen" style="max-height: 30vh;">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input type="file" class="form-control-file " id="exampleFormControlFile1" onchange="previewImage()">
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-secondary">Asientos</button>
+                                <select class="custom-select custom-select-lg ">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-4 mb-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">S/.</span>
+                                </div>
+                                <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" aria-describedby="precio-addon" step="any" pattern="\d+" min="0" max="23">
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="col-md-4 mb-3">
+                            <div class="row">
+                                <!-- Parte izquierda con imagen | yape-->
+                                <div class="col-md-2 mb-3" style="height: 100%;">
+                                    <div class="card seleccionable" data-valor="1" id="izquierda" style="width: 100%;">
+                                        <img src="https://seeklogo.com/images/Y/yape-logo-36579BE1F6-seeklogo.com.png" class="card-img-top" alt="Imagen Izquierda" style="height: 100%;">
+                                    </div>
+                                </div>
+
+                                <!-- Parte derecha con imagen | plin-->
+                                <div class="col-md-2 mb-3" style="height: 100%;">
+                                    <div class="card seleccionable" data-valor="2" id="derecha" style="width: 100%;">
+                                        <img src="https://seeklogo.com/images/P/plin-logo-967A4AF583-seeklogo.com.png" class="card-img-top" alt="Imagen Derecha" style="height: 100%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <style>
+                            .seleccionable {
+                                border: 2px solid transparent;
+                                /* Borde inicial transparente */
+                            }
+
+                            .seleccionada {
+                                border: 2px solid red;
+                                /* Borde rojo para indicar la selección */
+                            }
+                        </style>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vista previa de imagenes -->
+    <script>
+        function previewImage() {
+            var input = document.getElementById('exampleFormControlFile1');
+            var preview = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <!-- <section class="ftco-section services-section">
+        <div class="container">
+            <div class="row d-flex table-responsive">
+            </div>
+        </div>
+    </section> -->
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">MAS VISITADOS</span>
+                    <h2 class="mb-4">Elige Tu Destino</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(../images/destination-1.jpg)">
+                            <span class="price">$550/person</span>
+                        </a>
+                        <div class="text p-4">
+                            <span class="days">8 Days Tour</span>
+                            <h3><a href="#">Banaue Rice Terraces</a></h3>
+                            <p class="location">
+                                <span class="fa fa-map-marker"></span> Banaue, Ifugao,
+                                Philippines
+                            </p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(../images/destination-2.jpg)">
+                            <span class="price">$550/person</span>
+                        </a>
+                        <div class="text p-4">
+                            <span class="days">10 Days Tour</span>
+                            <h3><a href="#">Banaue Rice Terraces</a></h3>
+                            <p class="location">
+                                <span class="fa fa-map-marker"></span> Banaue, Ifugao,
+                                Philippines
+                            </p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(../images/destination-3.jpg)">
+                            <span class="price">$550/person</span>
+                        </a>
+                        <div class="text p-4">
+                            <span class="days">7 Days Tour</span>
+                            <h3><a href="#">Banaue Rice Terraces</a></h3>
+                            <p class="location">
+                                <span class="fa fa-map-marker"></span> Banaue, Ifugao,
+                                Philippines
+                            </p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(../images/destination-4.jpg)">
+                            <span class="price">$550/person</span>
+                        </a>
+                        <div class="text p-4">
+                            <span class="days">8 Days Tour</span>
+                            <h3><a href="#">Banaue Rice Terraces</a></h3>
+                            <p class="location">
+                                <span class="fa fa-map-marker"></span> Banaue, Ifugao,
+                                Philippines
+                            </p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(../images/destination-5.jpg)">
+                            <span class="price">$550/person</span>
+                        </a>
+                        <div class="text p-4">
+                            <span class="days">10 Days Tour</span>
+                            <h3><a href="#">Banaue Rice Terraces</a></h3>
+                            <p class="location">
+                                <span class="fa fa-map-marker"></span> Banaue, Ifugao,
+                                Philippines
+                            </p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(../images/destination-6.jpg)">
+                            <span class="price">$550/person</span>
+                        </a>
+                        <div class="text p-4">
+                            <span class="days">7 Days Tour</span>
+                            <h3><a href="#">Banaue Rice Terraces</a></h3>
+                            <p class="location">
+                                <span class="fa fa-map-marker"></span> Banaue, Ifugao,
+                                Philippines
+                            </p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<section class="ftco-section ftco-about img"style="background-image: url(../images/bg_4.jpg);">
+			<div class="overlay"></div>
+			<div class="container py-md-5">
+				<div class="row py-md-5">
+					<div class="col-md d-flex align-items-center justify-content-center">
+						<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+							<span class="fa fa-play"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>-->
+
+    <!-- <section class="ftco-section ftco-about ftco-no-pt img">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-md-12 about-intro">
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-stretch">
+                <div
+                  class="img d-flex w-100 align-items-center justify-content-center"
+                  style="background-image: url(../images/about-1.jpg)"
+                ></div>
+              </div>
+              <div class="col-md-6 pl-md-5 py-5">
+                <div class="row justify-content-start pb-3">
+                  <div class="col-md-12 heading-section ftco-animate">
+                    <span class="subheading">¿Porque Elegirnos?</span>
+                    <h2 class="mb-4">
+                      Hacemos que su viaje sea memorable y seguro con nosotros
+                    </h2>
+                    <p><a href="#" class="btn btn-primary">Buscar Ruta</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!--<section class="ftco-intro ftco-section ftco-no-pt">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 text-center">
+						<div class="img"  style="background-image: url(../images/bg_2.jpg);">
+							<div class="overlay"></div>
+							<h2>We Are Pacific A Travel Agency</h2>
+							<p>We can manage your dream building A small river named Duden flows by their place</p>
+							<p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>-->
+
+    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(../images/bg_3.jpg)">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md pt-5">
+                    <div class="ftco-footer-widget pt-md-5 mb-4">
+                        <h2 class="ftco-heading-2">Nosotros</h2>
+                        <p>Hacemos que su viaje sea memorable y seguro con nosotros</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                            <li class="ftco-animate">
+                                <a href="#"><span class="fa fa-twitter"></span></a>
+                            </li>
+                            <li class="ftco-animate">
+                                <a href="#"><span class="fa fa-facebook"></span></a>
+                            </li>
+                            <li class="ftco-animate">
+                                <a href="#"><span class="fa fa-instagram"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md pt-5 border-left">
+                    <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Informacion</h2>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="py-2 d-block">Información general</a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">Condiciones de reserva</a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">Política de privacidad</a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="py-2 d-block">Llámenos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md pt-5 border-left">
+                    <div class="ftco-footer-widget pt-md-5 mb-4">
+                        <h2 class="ftco-heading-2">¿Tiene alguna pregunta?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li>
+                                    <a href="#"><span class="icon fa fa-phone"></span><span class="text">+51 999 999 999</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">chapatucarro@gmail.com</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        All rights reserved |<i class="fa fa-heart" aria-hidden="true"></i>
+                        by
+                        <a href="https://colorlib.com" target="_blank">ChapaTuCarro</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+        </svg>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.easing.1.3.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery.animateNumber.min.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="../js/google-map.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://kit.fontawesome.com/742049c140.js" crossorigin="anonymous"></script>
+
+    <script src="../js/horas.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.seleccionable').click(function () {
+                // Obtener el valor asignado a la tarjeta clicada
+                var valor = $(this).data('valor');
+
+                // Desmarcar todas las tarjetas
+                $('.seleccionable').removeClass('seleccionada');
+
+                // Marcar solo la tarjeta clicada
+                $(this).addClass('seleccionada');
+
+                // Mostrar en la consola el valor de la tarjeta seleccionada
+                console.log("Valor de la tarjeta seleccionada: " + valor);
+            });
+        });
+
+    </script>
+</body>
+
+</html>
