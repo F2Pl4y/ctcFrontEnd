@@ -9,32 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
-
     <link rel="stylesheet" href="../css/owl.carousel.min.css" />
     <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="../css/magnific-popup.css" />
-
     <link rel="stylesheet" href="../css/bootstrap-datepicker.css" />
     <link rel="stylesheet" href="../css/jquery.timepicker.css" />
-
     <link rel="stylesheet" href="../css/flaticon.css" />
     <link rel="stylesheet" href="../css/style.css" />
-
     <!--diseño  adicional -->
     <link rel="stylesheet" href="../css/style2.css" />
-
+    <link rel="stylesheet" href="../css/formConductor.css" />
 
     <!-- <script src="../js/jquery.min.js"></script> -->
 
     <!-- para registrar con google -->
-    <!-- <script src="https://apis.google.com/js/platform.js"></script> -->
+    <script src="https://apis.google.com/js/platform.js"></script>
     <script src="../js/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/auth2.js" async defer></script>
-
-
-
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrj-Po03GaGWB_AVjgwE-bxwrKq60Xa_s&libraries=places"></script>
     <script src="../js/localizacion.js"></script>
     <script src="../js/prueba.js"></script>
@@ -48,7 +40,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
-
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -64,7 +55,7 @@
                         <a href="../contact.html" class="nav-link">Contactanos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../Login.html" class="nav-link">Iniciar Sesion</a>
+                        <a href="../pages/Login.html" class="nav-link">Iniciar Sesion</a>
                     </li>
                 </ul>
             </div>
@@ -81,72 +72,9 @@
                     <div class="container" style="background-color: #ffffff;padding: 12px;opacity: 1;">
                         <div class="col-md-12">
                             <form action="../index.html" novalidate>
-                                <style>
-                                    .containerGrid {
-                                        display: grid;
-                                        grid-template-columns: 1fr 1fr;
-                                        grid-template-rows: 1fr 1fr;
-                                        gap: 0px 0px;
-                                        align-items: center;
-                                        grid-auto-flow: row;
-                                        grid-template-areas:
-                                            "txtUbicacion divMapsG"
-                                            "txtDetalleUbi divMapsG";
-                                        /*". . .";*/
-                                    }
 
-                                    .txtUbicacion {
-                                        grid-area: txtUbicacion;
-                                    }
-
-                                    .txtDetalleUbi {
-                                        grid-area: txtDetalleUbi;
-                                    }
-
-                                    .divMapsG {
-                                        grid-area: divMapsG;
-                                    }
-
-                                    .col-md-12.textoCol {
-                                        text-align: center;
-                                    }
-
-                                    .GridV {
-                                        display: grid;
-                                        grid-template-columns: 1fr 1fr;
-                                        grid-template-rows: 1fr 1fr;
-                                        gap: 0px 0px;
-                                        align-items: center;
-                                        grid-auto-flow: row;
-                                        grid-template-areas:
-                                            "gridV1 gridV2"
-                                            "gridV3 gridV4";
-                                        justify-content: space-evenly;
-                                        align-content: space-evenly;
-                                        justify-items: stretch;
-
-                                    }
-
-                                    .gridV1 {
-                                        grid-area: gridV1;
-                                    }
-
-                                    .gridV2 {
-                                        grid-area: gridV2;
-                                    }
-
-                                    .gridV3 {
-                                        grid-area: gridV3;
-                                    }
-
-                                    .gridV4 {
-                                        grid-area: gridV4;
-                                    }
-                                </style>
                                 <div class="form-col">
                                     <!-- INICIO: modal del tipo de carro -->
-                                    <!-- Button trigger modal -->
-
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable">
@@ -167,7 +95,6 @@
                                                             <option value="2">Alquilado</option>
                                                         </select>
                                                     </div>
-
                                                     <div class="form-group">
                                                         <label>FABRICANTE</label>
                                                         <select class="custom-select custom-select-lg form-control" id="exampleInputEmail1">
@@ -178,7 +105,6 @@
                                                             <option value="2">Audi</option>
                                                         </select>
                                                     </div>
-
                                                     <div class="form-group">
                                                         <label>AÑO</label>
                                                         <select class="custom-select custom-select-lg form-control" id="exampleInputEmail1">
@@ -190,14 +116,10 @@
                                                             <option value="3">2018</option>
                                                         </select>
                                                     </div>
-
-
                                                     <div class="form-group">
                                                         <label>COLOR DEL CARRO</label>
                                                         <input type="color" class="form-control" id="colorPicker">
                                                     </div>
-
-
                                                     <div class="form-group">
                                                         <label>PLACA</label>
                                                         <input type="text" class="form-control" id="colorPicker">
@@ -220,14 +142,11 @@
                                         </div>
                                     </div>
                                     <!-- FIN: modal del tipo de carro -->
-
-
-
                                     <!-- Agrega esto en tu formulario para crear pestañas -->
                                     <div class="col-md-12 mb-3">
                                         <ul class="nav nav-tabs" id="myTabs" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="inicio-tab" data-toggle="tab" href="#inicio" role="tab" aria-controls="inicio" aria-selected="true">Inicio del Viaje</a>
+                                                <a class="nav-link active" id="inicio-tab" data-toggle="tab" href="#inicio" role="tab" aria-controls="inicio" aria-selected="true">Punto de inicio</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="llegada-tab" data-toggle="tab" href="#llegada" role="tab" aria-controls="llegada" aria-selected="false">Punto de Llegada</a>
@@ -248,12 +167,12 @@
                                                 <div class="col-md-13 mb-3 containerGrid">
                                                     <div class="txtUbicacion">
                                                         <div class="col mb-3">
-                                                            <input type="text" class="form-control" placeholder="PUNTO DE PARTIDA" required id="autocomplete1">
+                                                            <input type="text" class="form-control" placeholder="INICIO DEL VIAJE" required id="autocomplete1" name="autocomplete1">
                                                         </div>
                                                     </div>
                                                     <div class="txtDetalleUbi">
                                                         <div class="col mb-3">
-                                                            <input type="text" class="form-control" placeholder="DETALLE" required>
+                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput1" name="detalleInput1">
                                                         </div>
                                                     </div>
                                                     <div class="divMapsG">
@@ -261,7 +180,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <!-- Punto de Llegada -->
                                             <div class="tab-pane fade" id="llegada" role="tabpanel" aria-labelledby="llegada-tab">
                                                 <!-- Contenido de Punto de Llegada -->
@@ -269,12 +187,12 @@
                                                 <div class="containerGrid">
                                                     <div class="txtUbicacion">
                                                         <div class="col-md-12 mb-3">
-                                                            <input type="text" class="form-control" placeholder="PUNTO DE LLEGADA" required id="autocomplete2">
+                                                            <input type="text" class="form-control" placeholder="LLEGADA DEL VIAJE" required id="autocomplete2" name="autocomplete2">
                                                         </div>
                                                     </div>
                                                     <div class="txtDetalleUbi">
                                                         <div class="col-md-12 mb-3">
-                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput">
+                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput" name="detalleInput">
                                                         </div>
                                                     </div>
                                                     <div class="divMapsG">
@@ -285,34 +203,21 @@
 
                                             <!-- Horario del Viaje -->
                                             <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="horario-tab">
-                                                <!-- Contenido de Horario del Viaje -->
-                                                <!-- ... Tu código existente para Horario del Viaje ... -->
-                                                <!-- <div class="col mb-3">
-                                                    <div class="form-field">
-                                                        <input type="text" class="form-control checkin_date" placeholder="📅 FECHA DE PARTIDA" id="fechaPartidaField" />
-                                                    </div>
-                                                </div> -->
                                                 <div class="col mb-3">
                                                     <div class="form-field">
-                                                        <input type="text" class="form-control checkin_date" placeholder="📅 FECHA DE PARTIDA" id="fechaPartidaInput" />
+                                                        <input type="text" class="form-control checkin_date" placeholder="📅 FECHA DE PARTIDA" id="fechaPartidaInput" name="fechaPartidaInput" />
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col mb-3">
-                                                    <input type="text" id="horaSeleccionada" class="form-control" data-toggle="modal" data-target="#staticBackdrop" readonly placeholder="SELECCIONAR HORARIO">
-                                                </div> -->
                                                 <div class="col mb-3">
                                                     <!-- Agrega el atributo 'data-toggle' y 'data-target' al input -->
-                                                    <input type="text" id="horaSeleccionada" class="form-control" data-toggle="modal" data-target="#staticBackdrop" readonly placeholder="SELECCIONAR HORARIO">
+                                                    <input type="text" id="horaSeleccionada" name="horaSeleccionada" class="form-control" data-toggle="modal" data-target="#staticBackdrop" readonly placeholder="SELECCIONAR HORARIO">
                                                 </div>
                                             </div>
 
                                             <!-- Detalle del Vehículo -->
                                             <div class="tab-pane fade" id="vehiculo" role="tabpanel" aria-labelledby="vehiculo-tab">
-
-
                                                 <!-- Contenido de Detalle del Vehículo -->
                                                 <!-- ... Tu código existente para Detalle del Vehículo ... -->
-
                                                 <div class="GridV">
                                                     <div class="gridV1">
                                                         <div class="col mb-3">
@@ -345,7 +250,7 @@
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text">S/.</span>
                                                                 </div>
-                                                                <input type="number" class="form-control" id="precio" placeholder="" aria-describedby="precio-addon" step="any" pattern="\d+" min="0" max="23">
+                                                                <input type="number" class="form-control" id="precio" name="precio" placeholder="" aria-describedby="precio-addon" step="any" pattern="\d+" min="0" max="23">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -373,13 +278,9 @@
                                             </div>
                                         </div>
                                         <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">publicar viaje</button>
-
-
                                     </div>
-
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </section>
@@ -387,43 +288,6 @@
         </div>
     </div>
     <script>
-        $(document).ready(function () {
-            // Asignar el evento 'input' a los campos obligatorios
-            $('#autocomplete1, .txtDetalleUbi input, #autocomplete2, .txtDetalleUbi div input, #carSelect, .custom-select-lg:last-child, #precio')
-                .on('input', function () {
-                    verificarCampos();
-                });
-
-            $('.seleccionable').click(function () {
-                var valor = $(this).data('valor');
-                $('.seleccionable').removeClass('seleccionada');
-                $(this).addClass('seleccionada');
-
-                // switch (valor) {
-                //     case 1:
-                //         console.log("Has seleccionado Yape");
-                //         break;
-                //     case 2:
-                //         console.log("Has seleccionado Plin");
-                //         break;
-                // }
-
-                verificarCampos();
-            });
-
-            // Asignar eventos a los campos de fecha y horario
-            $('#fechaPartidaInput').on('change', function () {
-                verificarCampos();
-            });
-
-            // Asignar eventos al campo de horario cuando se muestra el modal
-            $('#staticBackdrop').on('shown.bs.modal', function () {
-                $('#horaSeleccionada').on('input', function () {
-                    verificarCampos();
-                });
-            });
-        });
-
         function verificarCampos() {
             var puntoPartida = document.getElementById('autocomplete1').value;
             var detallePartida = document.querySelector('.txtDetalleUbi input').value;
@@ -434,10 +298,8 @@
             var carSelect = document.getElementById('carSelect').value;
             var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
             var precio = document.getElementById('precio').value;
-
             // Obtener el valor del método de pago seleccionado
             var metodoPago = $('.seleccionada').data('valor');
-
             if (
                 puntoPartida && detallePartida &&
                 puntoLlegada && detalleLlegada &&
@@ -451,11 +313,38 @@
                 document.getElementById('btnPublicar').style.display = 'none';
             }
         }
-
+        $(document).ready(function () {
+            // Asignar el evento 'input' a los campos obligatorios
+            $('#autocomplete1, .txtDetalleUbi input, #autocomplete2, .txtDetalleUbi div input, #carSelect, .custom-select-lg:last-child, #precio')
+                .on('input', function () {
+                    verificarCampos();
+                });
+            $('.seleccionable').click(function () {
+                var valor = $(this).data('valor');
+                $('.seleccionable').removeClass('seleccionada');
+                $(this).addClass('seleccionada');
+                switch (valor) {
+                    case 1:
+                        console.log("Has seleccionado Yape");
+                        break;
+                    case 2:
+                        console.log("Has seleccionado Plin");
+                        break;
+                }
+                verificarCampos();
+            });
+            // Asignar eventos a los campos de fecha y horario
+            $('#fechaPartidaInput').on('change', function () {
+                verificarCampos();
+            });
+            // Asignar eventos al campo de horario cuando se muestra el modal
+            $('#staticBackdrop').on('shown.bs.modal', function () {
+                $('#horaSeleccionada').on('input', function () {
+                    verificarCampos();
+                });
+            });
+        });
     </script>
-
-
-
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -477,9 +366,6 @@
             </div>
         </div>
     </div>
-
-
-
     <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(../images/bg_3.jpg)">
         <div class="container">
             <div class="row mb-5">
@@ -553,7 +439,6 @@
             </div>
         </div>
     </footer>
-
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen">
         <svg class="circular" width="48px" height="48px">
@@ -561,12 +446,12 @@
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
         </svg>
     </div>
-
-
-
-
-
     <!-- <script src="../js/jquery.min.js"></script> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
     <script src="../js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -580,45 +465,34 @@
     <script src="../js/scrollax.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="https://kit.fontawesome.com/742049c140.js" crossorigin="anonymous"></script>
-
     <script src="../js/horas.js"></script>
-
     <script>
         $(document).ready(function () {
             $('.seleccionable').click(function () {
                 // Obtener el valor asignado a la tarjeta clicada
                 var valor = $(this).data('valor');
-
                 // Desmarcar todas las tarjetas
                 $('.seleccionable').removeClass('seleccionada');
-
                 // Marcar solo la tarjeta clicada
                 $(this).addClass('seleccionada');
-
                 // Mostrar en la consola el valor de la tarjeta seleccionada
-                // console.log("Valor de la tarjeta seleccionada: " + valor);
             });
         });
     </script>
-
     <!-- Vista previa de imagenes -->
     <script>
         function previewImage() {
             var input = document.getElementById('exampleFormControlFile1');
             var preview = document.getElementById('imagePreview');
-
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     preview.src = e.target.result;
                 };
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
     </script>
-
     <script>
         $(document).ready(function () {
             // Evento para detectar cambios en el select
@@ -631,15 +505,11 @@
             });
         });
     </script>
-
-
-
     <!-- para el back -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../js/validador.js"></script>
-
 </body>
 
 </html>

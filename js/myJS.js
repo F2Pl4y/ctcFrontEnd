@@ -5,17 +5,6 @@ function generarBotonesYMostrarFilas(tablaId, pagina) {
     var numFilas = tabla.querySelectorAll("tbody tr").length;
     var numPaginas = Math.ceil(numFilas / filasPorPagina);
 
-
-
-
-
-
-
-
-
-
-
-
     var paginationButtons = document.getElementById(tablaId + "PaginationButtons");
     paginationButtons.innerHTML = ""; // Limpia los botones existentes
 

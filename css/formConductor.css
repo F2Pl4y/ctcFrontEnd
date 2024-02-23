@@ -1,0 +1,59 @@
+.containerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  align-items: center;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "txtUbicacion divMapsG"
+    "txtDetalleUbi divMapsG";
+  /*". . .";*/
+}
+
+.txtUbicacion {
+  grid-area: txtUbicacion;
+}
+
+.txtDetalleUbi {
+  grid-area: txtDetalleUbi;
+}
+
+.divMapsG {
+  grid-area: divMapsG;
+}
+
+.col-md-12.textoCol {
+  text-align: center;
+}
+
+.GridV {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  align-items: center;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "gridV1 gridV2"
+    "gridV3 gridV4";
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  justify-items: stretch;
+}
+
+.gridV1 {
+  grid-area: gridV1;
+}
+
+.gridV2 {
+  grid-area: gridV2;
+}
+
+.gridV3 {
+  grid-area: gridV3;
+}
+
+.gridV4 {
+  grid-area: gridV4;
+}
