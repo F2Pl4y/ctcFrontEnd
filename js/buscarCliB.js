@@ -70,16 +70,7 @@ function accInsViaj() {
 //     });
 // }
 
-
-
-
-
-
-
-
-
 function grabarForm() {
-
     // Obtener el token del sessionStorage
     const token = sessionStorage.getItem("access_token");
     console.log("valor del token", token);
@@ -88,7 +79,6 @@ function grabarForm() {
         console.log("No se encontró el token en el sessionStorage. Asegúrate de estar logueado.");
         return; // Detiene la ejecución si no hay token
     }
-
     var autocomplete1 = $('#autocomplete1').val();
     var detalleInput1 = $('#detalleInput1').val();
     var autocomplete2 = $('#autocomplete2').val();
@@ -99,8 +89,6 @@ function grabarForm() {
     var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
     var precio = $('#precio').val();
     var metodoPago = $('.seleccionada').data('valor');
-
-
     const dataCarrera = {
         viajeA: autocomplete1,
         detViajeA: detalleInput1,
@@ -114,12 +102,9 @@ function grabarForm() {
         pagoType: metodoPago,
         mitkn: token
     };
-
-
     console.log(dataCarrera);
     console.log("VALOR DE LA RUTA");
     console.log(`${dominio}/regViaje/`);
-
     $.ajax({
         type: 'POST',
         url: `${dominio}/regViaje/`,
@@ -144,6 +129,7 @@ function grabarForm() {
             console.log("jqXHR responseText:", jqXHR.responseText);
             console.log("textStatus:", textStatus);
             console.log("errorThrown:", errorThrown);
+            window.location.href = 'buscarCliB.html';
             // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje al usuario
         }
     });

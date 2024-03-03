@@ -4,6 +4,7 @@
 <head>
     <title>¡Chapa Tu Carro!</title>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="#">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -147,10 +148,13 @@
                 <div class="col-md-12 text-center">
 
                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved |<i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">ChapaTuCarro</a>
+                        Copyright &copy; <span id="current-year"></span>
+                        All rights reserved | <i class="fa fa-heart" aria-hidden="true"></i> by <a>ChapaTuCarro</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
+                    <script>
+                        document.getElementById('current-year').textContent = new Date().getFullYear();
+                    </script>
                 </div>
             </div>
         </div>
