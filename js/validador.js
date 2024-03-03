@@ -49,7 +49,15 @@ function checkSession() {
         });
     } else if (!tokenC && !isLogin) {
         // Si no estamos en login y no hay token, redirige a login.html.
-        window.location.href = 'Login.html';
+
+        if (window.location.pathname == "/index.html") {
+            // window.location.href = '/Login.html';
+            window.location.href = 'pages/Login.html';
+        } else {
+            window.location.href = 'Login.html';
+        }
+
+        // pages/Login.html
     }
     // No hace nada si hay un token y no está en la página de login (asume que la sesión es válida).
 }
