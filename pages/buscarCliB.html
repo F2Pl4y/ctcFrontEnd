@@ -19,17 +19,15 @@
     <!--diseño  adicional -->
     <link rel="stylesheet" href="../css/style2.css" />
     <link rel="stylesheet" href="../css/formConductor.css" />
-
     <!-- <script src="../js/jquery.min.js"></script> -->
-
     <!-- para registrar con google -->
     <script src="https://apis.google.com/js/platform.js"></script>
-    <script src="../js/jquery.min.js"></script>
+    <!-- <script src="../js/jquery.min.js"></script> -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/auth2.js" async defer></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrj-Po03GaGWB_AVjgwE-bxwrKq60Xa_s&libraries=places"></script>
-    <script src="../js/localizacion.js"></script>
-    <script src="../js/prueba.js"></script>
+    <!-- <script src="../js/localizacion.js"></script>
+    <script src="../js/prueba.js"></script> -->
 </head>
 
 <body>
@@ -71,8 +69,9 @@
                 <section class="ftco-section ftco-no-pb">
                     <div class="container" style="background-color: #ffffff;padding: 12px;opacity: 1;">
                         <div class="col-md-12">
-                            <form action="../index.html" novalidate>
-
+                            <!-- <form action="../index.html" novalidate method="post" id="loginForm"> -->
+                            <!-- <form action="" method="post" id="formCond"> -->
+                            <form id="formCond">
                                 <div class="form-col">
                                     <!-- INICIO: modal del tipo de carro -->
                                     <!-- Modal -->
@@ -192,7 +191,7 @@
                                                     </div>
                                                     <div class="txtDetalleUbi">
                                                         <div class="col-md-12 mb-3">
-                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput" name="detalleInput">
+                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput2" name="detalleInput2">
                                                         </div>
                                                     </div>
                                                     <div class="divMapsG">
@@ -277,7 +276,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">publicar viaje</button>
+                                        <!-- <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">publicar viaje</button> -->
+                                        <button id="btnPublicar" class="btn btn-primary form-control" type="submit">publicar viaje</button>
                                     </div>
                                 </div>
                             </form>
@@ -287,64 +287,7 @@
             </div>
         </div>
     </div>
-    <script>
-        function verificarCampos() {
-            var puntoPartida = document.getElementById('autocomplete1').value;
-            var detallePartida = document.querySelector('.txtDetalleUbi input').value;
-            var puntoLlegada = document.getElementById('autocomplete2').value;
-            var detalleLlegada = document.getElementById('detalleInput').value;
-            var fechaPartida = document.getElementById('fechaPartidaInput').value;
-            var horaSeleccionada = document.getElementById('horaSeleccionada').value;
-            var carSelect = document.getElementById('carSelect').value;
-            var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
-            var precio = document.getElementById('precio').value;
-            // Obtener el valor del método de pago seleccionado
-            var metodoPago = $('.seleccionada').data('valor');
-            if (
-                puntoPartida && detallePartida &&
-                puntoLlegada && detalleLlegada &&
-                fechaPartida && horaSeleccionada &&
-                carSelect && asientosSelect && precio &&
-                metodoPago !== undefined
-            ) {
-                document.getElementById('btnPublicar').style.display = 'block';
-                // console.log(puntoPartida, detallePartida, puntoLlegada, detalleLlegada, fechaPartida, horaSeleccionada, carSelect, asientosSelect, precio, metodoPago);
-            } else {
-                document.getElementById('btnPublicar').style.display = 'none';
-            }
-        }
-        $(document).ready(function () {
-            // Asignar el evento 'input' a los campos obligatorios
-            $('#autocomplete1, .txtDetalleUbi input, #autocomplete2, .txtDetalleUbi div input, #carSelect, .custom-select-lg:last-child, #precio')
-                .on('input', function () {
-                    verificarCampos();
-                });
-            $('.seleccionable').click(function () {
-                var valor = $(this).data('valor');
-                $('.seleccionable').removeClass('seleccionada');
-                $(this).addClass('seleccionada');
-                switch (valor) {
-                    case 1:
-                        console.log("Has seleccionado Yape");
-                        break;
-                    case 2:
-                        console.log("Has seleccionado Plin");
-                        break;
-                }
-                verificarCampos();
-            });
-            // Asignar eventos a los campos de fecha y horario
-            $('#fechaPartidaInput').on('change', function () {
-                verificarCampos();
-            });
-            // Asignar eventos al campo de horario cuando se muestra el modal
-            $('#staticBackdrop').on('shown.bs.modal', function () {
-                $('#horaSeleccionada').on('input', function () {
-                    verificarCampos();
-                });
-            });
-        });
-    </script>
+
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -449,10 +392,24 @@
     <!-- <script src="../js/jquery.min.js"></script> -->
 
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+    <!-- <script src="https://code.jquery.com/jquery-3."></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+
+
+    <!-- Popper.js y Bootstrap JS Bundle -->
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Otros scripts de terceros (Owl Carousel, Magnific Popup, etc.) -->
 
     <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.easing.1.3.js"></script>
@@ -464,7 +421,13 @@
     <script src="../js/bootstrap-datepicker.js"></script>
     <script src="../js/scrollax.min.js"></script>
     <script src="../js/main.js"></script>
+
+    <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/742049c140.js" crossorigin="anonymous"></script>
+
+    <!-- Horas.js -->
+    <script src="../js/localizacion.js"></script>
+    <script src="../js/prueba.js"></script>
     <script src="../js/horas.js"></script>
     <script>
         $(document).ready(function () {
@@ -507,9 +470,71 @@
     </script>
     <!-- para el back -->
     <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Scripts personalizados -->
+    <script type="module" src="../js/buscarCliB.js"></script>
     <script type="module" src="../js/validador.js"></script>
+    <!-- <script>
+        function verificarCampos() {
+            var puntoPartida = document.getElementById('autocomplete1').value;
+            var detallePartida = document.querySelector('.txtDetalleUbi input').value;
+            var puntoLlegada = document.getElementById('autocomplete2').value;
+            var detalleLlegada = document.getElementById('detalleInput').value;
+            var fechaPartida = document.getElementById('fechaPartidaInput').value;
+            var horaSeleccionada = document.getElementById('horaSeleccionada').value;
+            var carSelect = document.getElementById('carSelect').value;
+            var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
+            var precio = document.getElementById('precio').value;
+            // Obtener el valor del método de pago seleccionado
+            var metodoPago = $('.seleccionada').data('valor');
+            if (
+                puntoPartida && detallePartida &&
+                puntoLlegada && detalleLlegada &&
+                fechaPartida && horaSeleccionada &&
+                carSelect && asientosSelect && precio &&
+                metodoPago !== undefined
+            ) {
+                document.getElementById('btnPublicar').style.display = 'block';
+                // console.log(puntoPartida, detallePartida, puntoLlegada, detalleLlegada, fechaPartida, horaSeleccionada, carSelect, asientosSelect, precio, metodoPago);
+            } else {
+                document.getElementById('btnPublicar').style.display = 'none';
+            }
+        }
+        $(document).ready(function () {
+            // Asignar el evento 'input' a los campos obligatorios
+            $('#autocomplete1, .txtDetalleUbi input, #autocomplete2, .txtDetalleUbi div input, #carSelect, .custom-select-lg:last-child, #precio')
+                .on('input', function () {
+                    verificarCampos();
+                });
+            $('.seleccionable').click(function () {
+                var valor = $(this).data('valor');
+                $('.seleccionable').removeClass('seleccionada');
+                $(this).addClass('seleccionada');
+                switch (valor) {
+                    case 1:
+                        console.log("Has seleccionado Yape");
+                        break;
+                    case 2:
+                        console.log("Has seleccionado Plin");
+                        break;
+                }
+                verificarCampos();
+            });
+            // Asignar eventos a los campos de fecha y horario
+            $('#fechaPartidaInput').on('change', function () {
+                verificarCampos();
+            });
+            // Asignar eventos al campo de horario cuando se muestra el modal
+            $('#staticBackdrop').on('shown.bs.modal', function () {
+                $('#horaSeleccionada').on('input', function () {
+                    verificarCampos();
+                });
+            });
+        });
+    </script> -->
 </body>
 
 </html>

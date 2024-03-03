@@ -1,104 +1,172 @@
-// // export const dominio = 'http://127.0.0.1:5000';
 const dominio = 'http://127.0.0.1:5000';
-window.addEventListener('load', (e) => {
-    checkSession();
-    iniciarSesion();
-    // if (window.location.pathname === "/index.html") {
-    //     // evaluarCampos();
-    // } else {
-    //     // cerrarSesion();
-    //     // console.log("cerrarrrr");
-    // }
+
+document.addEventListener('DOMContentLoaded', function () {
+    accInsViaj();
 });
 
-function setSession(token) {
-    sessionStorage.setItem("access_token", token);
-}
-
-function isSessionValid(token) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            type: 'GET',
-            url: `${dominio}/protectedctc`,
-            dataType: "json",
-            headers: {
-                'Authorization': 'cabecera' + token
-            },
-            success: function (response) {
-                resolve(response["exito"]);
-                // console.log("valor sessionvalida", resolve(response["exito"]));
-            },
-            error: function (error) {
-                reject(error);
-            }
-        });
+function accInsViaj() {
+    const btnPublicar = document.getElementById('btnPublicar');
+    btnPublicar.addEventListener('click', function (e) {
+        e.preventDefault();
+        grabarForm();
     });
 }
 
-function cerrarSesion() {
-    if (window.location.pathname !== "/pages/Login.html") {
-        const btnLogout = document.getElementById('btnLogout');
-        btnLogout.addEventListener('click', (e) => {
-            mensajeConfirmacion('Cerrar sesión', '¿Estás seguro que deseas cerrar sesión?').then((booleano) => {
-                if (booleano) {
-                    sessionStorage.setItem("access_token", null);
-                    checkSession();
-                }
-            });
-        });
+// function grabarForm() {
+//     console.log("Entre a grabarForm | antes de jalar el formulario");
+
+//     var autocomplete1 = $('#autocomplete1').val();
+//     var detalleInput1 = $('#detalleInput1').val();
+//     var autocomplete2 = $('#autocomplete2').val();
+//     var detalleInput2 = $('#detalleInput2').val();
+//     var fechaPartidaInput = $('#fechaPartidaInput').val();
+//     var horaSeleccionada = $('#horaSeleccionada').val();
+//     var carSelect = document.getElementById('carSelect').value;
+//     var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
+//     var precio = $('#precio').val();
+//     var metodoPago = $('.seleccionada').data('valor');
+
+//     const dataCarrera = {
+//         viajeA: autocomplete1,
+//         detViajeA: detalleInput1,
+//         viajeB: autocomplete2,
+//         detViajeB: detalleInput2,
+//         datePart: fechaPartidaInput,
+//         timePart: horaSeleccionada,
+//         carSel: carSelect,
+//         asiCant: asientosSelect,
+//         costPasaje: precio,
+//         pagoType: metodoPago
+//     };
+//     // Obtener el token del almacenamiento del navegador
+//     const token = localStorage.getItem('token'); // Asegúrate de haber guardado tu token con este nombre clave
+//     console.log("valor del token", token);
+//     console.log(dataCarrera);
+//     console.log("VALOR DE LA RUTA");
+//     console.log(`${dominio}/regViaje/`);
+//     $.ajax({
+//         type: 'POST',
+//         url: `${dominio}/regViaje/`,
+//         data: JSON.stringify(dataCarrera),
+//         dataType: 'json',
+//         contentType: 'application/json',
+//         // Incluir el token en el encabezado Authorization
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+//         },
+//         success: function (response) {
+//             if (response["mensaje"]) {
+//                 console.log("correctooooooo");
+//             } else {
+//                 console.log("Hubo un problema");
+//             }
+//         },
+//         error: function (jqXHR, textStatus, errorThrown) {
+//             console.log("jqXHR status:", jqXHR.status);
+//             console.log("jqXHR responseText:", jqXHR.responseText);
+//             console.log("textStatus:", textStatus);
+//             console.log("errorThrown:", errorThrown);
+//         }
+//     });
+// }
+
+
+
+
+
+
+
+
+
+function grabarForm() {
+
+    // Obtener el token del sessionStorage
+    const token = sessionStorage.getItem("access_token");
+    console.log("valor del token", token);
+
+    if (!token) {
+        console.log("No se encontró el token en el sessionStorage. Asegúrate de estar logueado.");
+        return; // Detiene la ejecución si no hay token
     }
-}
 
-// Función para verificar si el usuario ha iniciado sesión
-function checkSession() {
-    let tokenC = sessionStorage.getItem("access_token");
-    isSessionValid(tokenC).then(validarSesion => {
-        if (validarSesion) {
-            console.log("Estoy en checkSession:", window.location.pathname);
-            if (window.location.pathname === "/pages/Login.html") {
-                window.location.href = '/pages/inicio.html'
+    var autocomplete1 = $('#autocomplete1').val();
+    var detalleInput1 = $('#detalleInput1').val();
+    var autocomplete2 = $('#autocomplete2').val();
+    var detalleInput2 = $('#detalleInput2').val();
+    var fechaPartidaInput = $('#fechaPartidaInput').val();
+    var horaSeleccionada = $('#horaSeleccionada').val();
+    var carSelect = document.getElementById('carSelect').value;
+    var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
+    var precio = $('#precio').val();
+    var metodoPago = $('.seleccionada').data('valor');
+
+
+    const dataCarrera = {
+        viajeA: autocomplete1,
+        detViajeA: detalleInput1,
+        viajeB: autocomplete2,
+        detViajeB: detalleInput2,
+        datePart: fechaPartidaInput,
+        timePart: horaSeleccionada,
+        carSel: carSelect,
+        asiCant: asientosSelect,
+        costPasaje: precio,
+        pagoType: metodoPago,
+        mitkn: token
+    };
+
+
+    console.log(dataCarrera);
+    console.log("VALOR DE LA RUTA");
+    console.log(`${dominio}/regViaje/`);
+
+    $.ajax({
+        type: 'POST',
+        url: `${dominio}/regViaje/`,
+        data: JSON.stringify(dataCarrera),
+        dataType: 'json',
+        contentType: 'application/json',
+        // Incluir el token en el encabezado Authorization
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        success: function (response) {
+            if (response["mensaje"]) {
+                console.log("correctooooooo", response["mensaje"]);
+                window.location.href = 'inicio.html';
+                // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
+            } else {
+                console.log("Hubo un problema con la respuesta del servidor.");
             }
-        } else if (window.location.pathname !== "/pages/Login.html") {
-            window.location.href = '../pages/Login.html';
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("jqXHR status:", jqXHR.status);
+            console.log("jqXHR responseText:", jqXHR.responseText);
+            console.log("textStatus:", textStatus);
+            console.log("errorThrown:", errorThrown);
+            // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje al usuario
         }
-    }).catch(error => {
-        console.log(error);
     });
 }
 
-function iniciarSesion() {
-    $('#loginForm').submit(function (event) {
-        event.preventDefault();
-        // var autocomplete1 = $('#autocomplete1').val();
-        // var detalleInput1 = $('#detalleInput1').val();
-        // var autocomplete2 = $('#autocomplete2').val();
-        // var detalleInput = $('#detalleInput').val();
-        // var fechaPartidaInput = $('#fechaPartidaInput').val();
-        // var horaSeleccionada = $('#horaSeleccionada').val();
-        // var carSelect = document.getElementById('carSelect').value;
-        // var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
-        // var precio = $('#precio').val();
-        // var metodoPago = $('.seleccionada').data('valor');
-
-        $.ajax({
-            url: `${dominio}/regViaje`,
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                CorreoTrabajador: correo,
-                PasswordTrabajador: password
-            }),
-            success: function (response) {
-                if (response["mensaje"]) {
-                    setSession(response["mensaje"]);
-                    checkSession();
-                } else {
-                }
-            },
-            error: function () {
-            }
-        });
-    });
-}
-
+        // $.ajax({
+        //     type: 'POST',
+        //     url: `${dominio}/regViaje/`,
+        //     data: JSON.stringify(dataCarrera),
+        //     dataType: 'json',
+        //     contentType: 'application/json',
+        //     success: function (response) {
+        //         if (response["mensaje"]) {
+        //             console.log("correctooooooo");
+        //         } else {
+        //             console.log("Hubo un problema");
+        //         }
+        //     },
+        //     error: function (jqXHR, textStatus, errorThrown) {
+        //         // console.log("Error en la solicitud AJAX");
+        //         console.log("jqXHR status:", jqXHR.status);
+        //         console.log("jqXHR responseText:", jqXHR.responseText);
+        //         console.log("textStatus:", textStatus);
+        //         console.log("errorThrown:", errorThrown);
+        //     }
+        // });
