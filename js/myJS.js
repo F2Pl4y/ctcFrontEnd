@@ -40,4 +40,4 @@ function generarBotonesYMostrarFilas(tablaId, pagina) {
 
 // Muestra las primeras filas y genera los botones de paginación al cargar la página para ambas tablas
 generarBotonesYMostrarFilas("tablePrec1", 0);
-generarBotonesYMostrarFilas("tablePrec2", 0);
+// generarBotonesYMostrarFilas("tablePrec2", 0);
