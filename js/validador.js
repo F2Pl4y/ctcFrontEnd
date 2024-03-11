@@ -1,4 +1,4 @@
-const dominio = 'http://127.0.0.1:5000';
+export const dominio = 'http://127.0.0.1:5000';
 // Función para establecer el token en sessionStorage.
 function setSession(token) {
     sessionStorage.setItem("access_token", token);
@@ -11,7 +11,7 @@ function isSessionValid(token) {
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'GET',
-            url: `${dominio}/protectedctc`,
+            url: `${dominio}/protectedctc/`,
             dataType: "json",
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -143,3 +143,5 @@ window.addEventListener('load', (e) => {
     iniciarSesion(); // Esta llamada debería condicionarse a estar en la página de login específicamente.
     console.log("llamando al inicio");
 });
+
+

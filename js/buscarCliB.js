@@ -1,4 +1,4 @@
-const dominio = 'http://127.0.0.1:5000';
+// const dominio = 'http://127.0.0.1:5000';
 
 document.addEventListener('DOMContentLoaded', function () {
     accInsViaj();
@@ -74,7 +74,6 @@ function grabarForm() {
     // Obtener el token del sessionStorage
     const token = sessionStorage.getItem("access_token");
     console.log("valor del token", token);
-
     if (!token) {
         console.log("No se encontró el token en el sessionStorage. Asegúrate de estar logueado.");
         return; // Detiene la ejecución si no hay token
@@ -135,24 +134,26 @@ function grabarForm() {
     });
 }
 
-        // $.ajax({
-        //     type: 'POST',
-        //     url: `${dominio}/regViaje/`,
-        //     data: JSON.stringify(dataCarrera),
-        //     dataType: 'json',
-        //     contentType: 'application/json',
-        //     success: function (response) {
-        //         if (response["mensaje"]) {
-        //             console.log("correctooooooo");
-        //         } else {
-        //             console.log("Hubo un problema");
-        //         }
-        //     },
-        //     error: function (jqXHR, textStatus, errorThrown) {
-        //         // console.log("Error en la solicitud AJAX");
-        //         console.log("jqXHR status:", jqXHR.status);
-        //         console.log("jqXHR responseText:", jqXHR.responseText);
-        //         console.log("textStatus:", textStatus);
-        //         console.log("errorThrown:", errorThrown);
-        //     }
-        // });
+// $.ajax({
+//     type: 'POST',
+//     url: `${dominio}/regViaje/`,
+//     data: JSON.stringify(dataCarrera),
+//     dataType: 'json',
+//     contentType: 'application/json',
+//     success: function (response) {
+//         if (response["mensaje"]) {
+//             console.log("correctooooooo");
+//         } else {
+//             console.log("Hubo un problema");
+//         }
+//     },
+//     error: function (jqXHR, textStatus, errorThrown) {
+//         // console.log("Error en la solicitud AJAX");
+//         console.log("jqXHR status:", jqXHR.status);
+//         console.log("jqXHR responseText:", jqXHR.responseText);
+//         console.log("textStatus:", textStatus);
+//         console.log("errorThrown:", errorThrown);
+//     }
+// });
+
+import { dominio } from '../js/validador.js';
