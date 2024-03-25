@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="#">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
     <link rel="stylesheet" href="../css/owl.carousel.min.css" />
     <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
@@ -26,15 +25,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/auth2.js" async defer></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrj-Po03GaGWB_AVjgwE-bxwrKq60Xa_s&libraries=places"></script>
-    <!-- <script async defer>
-        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
-            key: "AIzaSyBrj-Po03GaGWB_AVjgwE-bxwrKq60Xa_s",
-            // Add other bootstrap parameters as needed, using camel case.
-            // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
-        });
-    </script> -->
-    <!-- <script src="../js/localizacion.js"></script>
-    <script src="../js/prueba.js"></script> -->
 </head>
 
 <body>
@@ -67,7 +57,6 @@
         </div>
     </nav>
     <!-- END nav -->
-
     <div class="hero-wrap js-fullheight" style="background-image: url('../images/bg_5.jpg')">
         <div class="overlay"></div>
         <div class="container">
@@ -164,7 +153,6 @@
                                                 <a class="nav-link" id="vehiculo-tab" data-toggle="tab" href="#vehiculo" role="tab" aria-controls="vehiculo" aria-selected="false">Detalle del Vehículo</a>
                                             </li>
                                         </ul>
-
                                         <div class="tab-content" id="myTabsContent">
                                             <!-- Inicio del Viaje -->
                                             <div class="tab-pane fade show active" id="inicio" role="tabpanel" aria-labelledby="inicio-tab">
@@ -173,12 +161,12 @@
                                                 <div class="col-md-13 mb-3 containerGrid">
                                                     <div class="txtUbicacion">
                                                         <div class="col mb-3">
-                                                            <input type="text" class="form-control" placeholder="INICIO DEL VIAJE" required id="autocomplete1" name="autocomplete1">
+                                                            <input type="text" class="form-control" placeholder="INICIO DEL VIAJE" id="autocomplete1" name="autocomplete1">
                                                         </div>
                                                     </div>
                                                     <div class="txtDetalleUbi">
                                                         <div class="col mb-3">
-                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput1" name="detalleInput1">
+                                                            <input type="text" class="form-control" placeholder="DETALLE" id="detalleInput1" required name="detalleInput1">
                                                         </div>
                                                     </div>
                                                     <div class="divMapsG">
@@ -193,12 +181,12 @@
                                                 <div class="containerGrid">
                                                     <div class="txtUbicacion">
                                                         <div class="col-md-12 mb-3">
-                                                            <input type="text" class="form-control" placeholder="LLEGADA DEL VIAJE" required id="autocomplete2" name="autocomplete2">
+                                                            <input type="text" class="form-control" placeholder="LLEGADA DEL VIAJE" id="autocomplete2" name="autocomplete2">
                                                         </div>
                                                     </div>
                                                     <div class="txtDetalleUbi">
                                                         <div class="col-md-12 mb-3">
-                                                            <input type="text" class="form-control" placeholder="DETALLE" required id="detalleInput2" name="detalleInput2">
+                                                            <input type="text" class="form-control" placeholder="DETALLE" id="detalleInput2" required name="detalleInput2">
                                                         </div>
                                                     </div>
                                                     <div class="divMapsG">
@@ -206,7 +194,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <!-- Horario del Viaje -->
                                             <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="horario-tab">
                                                 <div class="col mb-3">
@@ -219,7 +206,6 @@
                                                     <input type="text" id="horaSeleccionada" name="horaSeleccionada" class="form-control" data-toggle="modal" data-target="#staticBackdrop" readonly placeholder="SELECCIONAR HORARIO">
                                                 </div>
                                             </div>
-
                                             <!-- Detalle del Vehículo -->
                                             <div class="tab-pane fade" id="vehiculo" role="tabpanel" aria-labelledby="vehiculo-tab">
                                                 <!-- Contenido de Detalle del Vehículo -->
@@ -283,8 +269,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">publicar viaje</button> -->
-                                        <button id="btnPublicar" class="btn btn-primary form-control" type="submit">publicar viaje</button>
+                                        <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">publicar viaje</button>
+                                        <!-- <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: block;">publicar viaje</button> -->
                                     </div>
                                 </div>
                             </form>
@@ -294,7 +280,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -383,7 +368,6 @@
                         All rights reserved |<i class="fa fa-heart" aria-hidden="true"></i>
                         by
                         <a href="https://colorlib.com" target="_blank">ChapaTuCarro</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
             </div>
@@ -397,26 +381,17 @@
         </svg>
     </div>
     <!-- <script src="../js/jquery.min.js"></script> -->
-
-
-
     <!-- <script src="https://code.jquery.com/jquery-3."></script> -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
-
-
     <!-- Popper.js y Bootstrap JS Bundle -->
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- Otros scripts de terceros (Owl Carousel, Magnific Popup, etc.) -->
-
     <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.easing.1.3.js"></script>
@@ -428,13 +403,11 @@
     <script src="../js/bootstrap-datepicker.js"></script>
     <script src="../js/scrollax.min.js"></script>
     <script src="../js/main.js"></script>
-
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/742049c140.js" crossorigin="anonymous"></script>
-
     <!-- Horas.js -->
     <script src="../js/localizacion.js"></script>
-    <script src="../js/prueba.js"></script>
+    <script type="module" src="../js/prueba.js"></script>
     <script src="../js/horas.js"></script>
     <script>
         $(document).ready(function () {
@@ -477,71 +450,11 @@
     </script>
     <!-- para el back -->
     <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
-
-
     <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
     <!-- Scripts personalizados -->
     <script type="module" src="../js/validador.js"></script>
     <script type="module" src="../js/buscarCliB.js"></script>
-    <!-- <script>
-        function verificarCampos() {
-            var puntoPartida = document.getElementById('autocomplete1').value;
-            var detallePartida = document.querySelector('.txtDetalleUbi input').value;
-            var puntoLlegada = document.getElementById('autocomplete2').value;
-            var detalleLlegada = document.getElementById('detalleInput').value;
-            var fechaPartida = document.getElementById('fechaPartidaInput').value;
-            var horaSeleccionada = document.getElementById('horaSeleccionada').value;
-            var carSelect = document.getElementById('carSelect').value;
-            var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
-            var precio = document.getElementById('precio').value;
-            // Obtener el valor del método de pago seleccionado
-            var metodoPago = $('.seleccionada').data('valor');
-            if (
-                puntoPartida && detallePartida &&
-                puntoLlegada && detalleLlegada &&
-                fechaPartida && horaSeleccionada &&
-                carSelect && asientosSelect && precio &&
-                metodoPago !== undefined
-            ) {
-                document.getElementById('btnPublicar').style.display = 'block';
-                // console.log(puntoPartida, detallePartida, puntoLlegada, detalleLlegada, fechaPartida, horaSeleccionada, carSelect, asientosSelect, precio, metodoPago);
-            } else {
-                document.getElementById('btnPublicar').style.display = 'none';
-            }
-        }
-        $(document).ready(function () {
-            // Asignar el evento 'input' a los campos obligatorios
-            $('#autocomplete1, .txtDetalleUbi input, #autocomplete2, .txtDetalleUbi div input, #carSelect, .custom-select-lg:last-child, #precio')
-                .on('input', function () {
-                    verificarCampos();
-                });
-            $('.seleccionable').click(function () {
-                var valor = $(this).data('valor');
-                $('.seleccionable').removeClass('seleccionada');
-                $(this).addClass('seleccionada');
-                switch (valor) {
-                    case 1:
-                        console.log("Has seleccionado Yape");
-                        break;
-                    case 2:
-                        console.log("Has seleccionado Plin");
-                        break;
-                }
-                verificarCampos();
-            });
-            // Asignar eventos a los campos de fecha y horario
-            $('#fechaPartidaInput').on('change', function () {
-                verificarCampos();
-            });
-            // Asignar eventos al campo de horario cuando se muestra el modal
-            $('#staticBackdrop').on('shown.bs.modal', function () {
-                $('#horaSeleccionada').on('input', function () {
-                    verificarCampos();
-                });
-            });
-        });
-    </script> -->
 </body>
 
 </html>

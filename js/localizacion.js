@@ -40,6 +40,5 @@ class localizacion {
             alert("no se pudo");
         }
     }
-}
-;
+};
 

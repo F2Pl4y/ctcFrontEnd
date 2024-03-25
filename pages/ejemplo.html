@@ -36,3 +36,134 @@
 </body>
 
 </html>
+
+<!-- de buscarCliB.html -->
+<!-- <script>
+        function verificarCampos() {
+            var puntoPartida = document.getElementById('autocomplete1').value;
+            var detallePartida = document.querySelector('.txtDetalleUbi input').value;
+            var puntoLlegada = document.getElementById('autocomplete2').value;
+            var detalleLlegada = document.getElementById('detalleInput').value;
+            var fechaPartida = document.getElementById('fechaPartidaInput').value;
+            var horaSeleccionada = document.getElementById('horaSeleccionada').value;
+            var carSelect = document.getElementById('carSelect').value;
+            var asientosSelect = document.querySelector('.custom-select-lg:last-child').value;
+            var precio = document.getElementById('precio').value;
+            // Obtener el valor del método de pago seleccionado
+            var metodoPago = $('.seleccionada').data('valor');
+            if (
+                puntoPartida && detallePartida &&
+                puntoLlegada && detalleLlegada &&
+                fechaPartida && horaSeleccionada &&
+                carSelect && asientosSelect && precio &&
+                metodoPago !== undefined
+            ) {
+                document.getElementById('btnPublicar').style.display = 'block';
+                // console.log(puntoPartida, detallePartida, puntoLlegada, detalleLlegada, fechaPartida, horaSeleccionada, carSelect, asientosSelect, precio, metodoPago);
+            } else {
+                document.getElementById('btnPublicar').style.display = 'none';
+            }
+        }
+        $(document).ready(function () {
+            // Asignar el evento 'input' a los campos obligatorios
+            $('#autocomplete1, .txtDetalleUbi input, #autocomplete2, .txtDetalleUbi div input, #carSelect, .custom-select-lg:last-child, #precio')
+                .on('input', function () {
+                    verificarCampos();
+                });
+            $('.seleccionable').click(function () {
+                var valor = $(this).data('valor');
+                $('.seleccionable').removeClass('seleccionada');
+                $(this).addClass('seleccionada');
+                switch (valor) {
+                    case 1:
+                        console.log("Has seleccionado Yape");
+                        break;
+                    case 2:
+                        console.log("Has seleccionado Plin");
+                        break;
+                }
+                verificarCampos();
+            });
+            // Asignar eventos a los campos de fecha y horario
+            $('#fechaPartidaInput').on('change', function () {
+                verificarCampos();
+            });
+            // Asignar eventos al campo de horario cuando se muestra el modal
+            $('#staticBackdrop').on('shown.bs.modal', function () {
+                $('#horaSeleccionada').on('input', function () {
+                    verificarCampos();
+                });
+            });
+        });
+    </script> -->
+
+
+
+<!-- de prueba.js -->
+<!-- // async function initMap(mapElementId, autocompleteElementId) {
+        //     const ubicacion = new localizacion(() => {
+        //         const myLatLng = { lat: ubicacion.latitude, lng: ubicacion.longitude };
+        
+        //         if (!myLatLng.lat || !myLatLng.lng) {
+        //             console.error("Error: No se ha obtenido la ubicación.");
+        //             return; // Detener la ejecución si no hay ubicación
+        //         }
+        
+        //         const options = {
+        //             center: myLatLng,
+        //             zoom: 15,
+        //             maxZoom: 22,
+        //             streetViewControl: false,
+        //             fullscreenControl: false
+        //         };
+        
+        //         const map = new google.maps.Map(document.getElementById(mapElementId), options);
+        
+        
+        
+        
+        //         const marcador = new google.maps.Marker({
+        //             position: myLatLng,
+        //             map: map,
+        //             title: "Mi primer marcador",
+        //         });
+        
+        //         const informacion = new google.maps.InfoWindow();
+        
+        //         marcador.addListener('click', () => {
+        //             informacion.open(map, marcador);
+        //         });
+        
+        
+        //         const autocomplete = new google.maps.places.Autocomplete(
+        //             document.getElementById(autocompleteElementId)
+        //         );
+        //         autocomplete.bindTo("bounds", map);
+        
+        //         autocomplete.addListener('place_changed', () => {
+        //             informacion.close();
+        //             marcador.setVisible(false);
+        
+        //             const place = autocomplete.getPlace();
+        //             if (!place.geometry || !place.geometry.viewport) {
+        //                 window.alert("error al mostrar el lugar");
+        //                 return;
+        //             }
+        
+        //             map.fitBounds(place.geometry.viewport);
+        //             marcador.setPosition(place.geometry.location);
+        //             marcador.setVisible(true);
+        
+        //             const address = [
+        //                 place.address_components[0] && place.address_components[0].short_name || '',
+        //                 place.address_components[1] && place.address_components[1].short_name || '',
+        //                 place.address_components[2] && place.address_components[2].short_name || '',
+        //             ];
+        //             informacion.setContent(
+        //                 `<div>${place.name}</div><br>${address.join('<br>')}`
+        //             );
+        //             informacion.open(map, marcador);
+        //         });
+        
+        //     });
+        // } -->

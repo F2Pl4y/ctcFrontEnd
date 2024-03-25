@@ -68,8 +68,8 @@ function checkSession() {
 
     let tokenC = sessionStorage.getItem("access_token");
     let isLogin = window.location.pathname.endsWith("Login.html");
-    console.log("valor de tokenc:", tokenC);
-    console.log("valor de !tokenc:", !tokenC);
+    // console.log("valor de tokenc:", tokenC);
+    // console.log("valor de !tokenc:", !tokenC);
     // Si estamos en la página de login y hay un token, verifica la validez.
     // if (isLogin && tokenC) {
     if (!tokenC == null || tokenC) {
