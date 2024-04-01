@@ -18,6 +18,7 @@ function isSessionValid(token) {
             },
             success: function (response) {
                 console.log("isSessionValid - response ->", response);
+                console.log("isSessionValid - response: DNI ->", response.resultado['TKN'][0]);
                 console.log("isSessionValid['exito']:\n", response['exito']);
                 if (response['exito']) {//si es false entonces...
                     console.log("entre a response['exito']");
@@ -47,7 +48,6 @@ function isSessionValid(token) {
                     }
                     resolve(true);
                 } else {
-                    console.log("HOLAAAAAAAA");
                     resolve(false);
                 }
             },

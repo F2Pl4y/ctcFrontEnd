@@ -1,8 +1,4 @@
-// import { getMap } from './mapManager.js';
-// let mapas = {}; esto no estoy seguro
-// En destination.js
 window.esMapaEstatico = true;
-
 moment.locale('es');
 document.addEventListener('DOMContentLoaded', function () {
   accInsViaj();
@@ -136,38 +132,38 @@ function recortarTexto(texto, longitudMax) {
   }
 }
 function cargarDetalleViaje(viajeID) {
-  $.ajax({
-    type: 'GET', // Ajusta este método según sea necesario para tu API
-    url: `${dominio}/detalleViaje/get/${viajeID}`, // Asegúrate de que esta URL sea correcta para tu API
-    contentType: 'application/json',
-    beforeSend: function (xhr) {
-      const token = sessionStorage.getItem("access_token");
-      if (token) {
-        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-      }
-    },
-    success: function (response) {
-      // Parsea la fecha/hora recibida a un objeto moment
-      var hora = moment(response.resultado.hora);
-      var horaFormateada = hora.format('LLLL');
-      $('#miModal .modal-title').text("Detalles del Viaje");
+  return new Promise((resolve, reject) => { // Envolver el contenido en una nueva Promesa
+    $.ajax({
+      type: 'GET', // Ajusta este método según sea necesario para tu API
+      url: `${dominio}/detalleViaje/get/${viajeID}`, // Asegúrate de que esta URL sea correcta para tu API
+      contentType: 'application/json',
+      beforeSend: function (xhr) {
+        const token = sessionStorage.getItem("access_token");
+        if (token) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        }
+      },
+      success: function (response) {
+        resolve(response); // Resolver la promesa con la respuesta
+        // Parsea la fecha/hora recibida a un objeto moment
+        var hora = moment(response.resultado.hora);
+        var horaFormateada = hora.format('LLLL');
+        $('#miModal .modal-title').text("Detalles del Viaje");
 
-
-      // $('#autocomplete1').val(response.resultado.inicioViaje);
-      // actualizarMapaConDireccion(response.resultado.inicioViaje);
-      // Suponiendo que quieres actualizar el mapa con ID 'map1' con la dirección de inicio del viaje
-      // actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
-      // actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
-      // console.log(mapas["map1"]);
-
-      // Actualiza el cuerpo del modal con la información del viaje
-      $('#miModal .modal-body').html(`
+        // $('#autocomplete1').val(response.resultado.inicioViaje);
+        // actualizarMapaConDireccion(response.resultado.inicioViaje);
+        // Suponiendo que quieres actualizar el mapa con ID 'map1' con la dirección de inicio del viaje
+        // actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
+        // actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
+        // console.log(mapas["map1"]);
+        // Actualiza el cuerpo del modal con la información del viaje
+        $('#miModal .modal-body').html(`
                 <p>DETALLE DE PARTIDA: ${response.resultado.detalle1Viaje}</p>
                 <p>DETALLE DE PARTIDA: ${response.resultado.detalle2Viaje}</p>
                 <p>FECHA: ${horaFormateada}</p>
                 <p>COSTO: ${response.resultado.costo}</p>
                 <p>ASIENTOS DISPONIBLES: ${response.resultado.asientos}</p>
-                <form id="formCond">
+          <form id="formCond">
             <div class="form-col">
               <!-- INICIO: modal del tipo de carro -->
               <!-- Modal -->
@@ -279,7 +275,7 @@ function cargarDetalleViaje(viajeID) {
                                 <div id="map2"></div>
                             </div>
                         </div>
-                    </div>
+                  </div>
                   <!-- Horario del Viaje -->
                   <!-- Detalle del Vehículo -->
                   <div class="tab-pane fade" id="vehiculo" role="tabpanel" aria-labelledby="vehiculo-tab">
@@ -319,63 +315,122 @@ function cargarDetalleViaje(viajeID) {
                         </div>
                         <!-- </div> -->
                       </div>
-                    </div>
                   </div>
                 </div>
                 <!-- <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">publicar viaje</button> -->
-                <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;>Comprar pasaje</button>
+                <button id="btnPublicar" class="btn btn-primary form-control" type="submit" style="display: none;">Comprar pasaje</button>
               </div>
             </div>
-          </form>
-            `);
-      // Actualiza los inputs con los datos de respuesta
-      // Estos elementos deben existir dentro de la estructura HTML que acabas de insertar
-      $('#autocomplete1').val(response.resultado.inicioViaje).attr('readonly', true);
-      $('#autocomplete2').val(response.resultado.finViaje).attr('readonly', true);
-
-
-      // Ahora, actualizamos el select de asientos basado en los asientos disponibles
-      var asientosDisponibles = response.resultado.asientos;
-      var opcionesAsientos = '';
-      for (var i = 1; i <= asientosDisponibles; i++) {
-        opcionesAsientos += `<option value="${i}" style="max-width: 90%;" class="custom-select">${i}</option>`;
-      }
-      // custom-select-lm
-      $('#asientosSelect').html(opcionesAsientos);
-      $(document).ready(function () {
-        $('.seleccionable').click(function () {
-          // Obtener el valor asignado a la tarjeta clicada
-          var valor = $(this).data('valor');
-          // Desmarcar todas las tarjetas
-          $('.seleccionable').removeClass('seleccionada');
-          // Marcar solo la tarjeta clicada
-          $(this).addClass('seleccionada');
-          // Mostrar en la consola el valor de la tarjeta seleccionada
-          // Aquí puedes hacer algo con el valor seleccionado, por ejemplo:
-          console.log("Has seleccionado el método de pago con el valor:", valor);
+          </form>`);
+        // Actualiza los inputs con los datos de respuesta
+        // Estos elementos deben existir dentro de la estructura HTML que acabas de insertar
+        $('#autocomplete1').val(response.resultado.inicioViaje).attr('readonly', true);
+        $('#autocomplete2').val(response.resultado.finViaje).attr('readonly', true);
+        console.log(response.resultado.inicioViaje);
+        console.log(response.resultado.finViaje);
+        // actualizarMapaConDireccion (response.mensaje.inicioViaje, 'map1');
+        // actualizarMapaConDireccion (response.mensaje.finViaje, 'map2');
+        // Ahora, actualizamos el select de asientos basado en los asientos disponibles
+        var asientosDisponibles = response.resultado.asientos;
+        var opcionesAsientos = '';
+        for (var i = 1; i <= asientosDisponibles; i++) {
+          opcionesAsientos += `<option value="${i}" style="max-width: 90%;" class="custom-select">${i}</option>`;
+        }
+        // custom-select-lm
+        $('#asientosSelect').html(opcionesAsientos);
+        $(document).ready(function () {
+          $('.seleccionable').click(function () {
+            // Obtener el valor asignado a la tarjeta clicada
+            var valor = $(this).data('valor');
+            // Desmarcar todas las tarjetas
+            $('.seleccionable').removeClass('seleccionada');
+            // Marcar solo la tarjeta clicada
+            $(this).addClass('seleccionada');
+            // Mostrar en la consola el valor de la tarjeta seleccionada
+            // Aquí puedes hacer algo con el valor seleccionado, por ejemplo:
+            console.log("Has seleccionado el método de pago con el valor:", valor);
+          });
         });
-      });
-      // Muestra el modal
-      $('#miModal').modal('show');
-      // $('#miModal').on('shown.bs.modal', function () {
-      setTimeout(function () {
-        actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
-        actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
-      }, 50);
-      // }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log("Error al cargar el detalle del viaje", textStatus, errorThrown, jqXHR);
-      // Manejar adecuadamente el error
-    }
+        // Muestra el modal
+        $('#miModal').modal('show');
+        // $('#miModal').on('shown.bs.modal', function () {
+        // setTimeout(function () {
+        //   actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
+        //   actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
+        // }, 50);
+        // }
+        // actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
+        // actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log("Error al cargar el detalle del viaje", textStatus, errorThrown, jqXHR);
+        // Manejar adecuadamente el error
+      }
+    });
   });
 };
+$(document).ready(function () {
+  // Inicialmente, el botón está oculto
+  $('#btnPublicar').hide();
 
+  // Función para verificar si se deben mostrar el botón
+  function mostrarBotonSiEsValido() {
+    // Verifica si se ha seleccionado un método de pago y una cantidad de asientos
+    var metodoPagoSeleccionado = $('.seleccionable.seleccionada').length > 0;
+    var asientosSeleccionados = $('#asientosSelect').val() !== '';
+
+    // Si ambos son verdaderos, muestra el botón, de lo contrario, lo oculta
+    if (metodoPagoSeleccionado && asientosSeleccionados) {
+      $('#btnPublicar').show();
+    } else {
+      $('#btnPublicar').hide();
+    }
+  }
+
+  // Evento al seleccionar una tarjeta de método de pago
+  $(document).on('click', '.seleccionable', function () {
+    // Obtener el valor asignado a la tarjeta clicada
+    var valor = $(this).data('valor');
+    // Desmarcar todas las tarjetas
+    $('.seleccionable').removeClass('seleccionada');
+    // Marcar solo la tarjeta clicada
+    $(this).addClass('seleccionada');
+
+    console.log("Tarjeta seleccionada con valor: ", valor);
+
+    // Llama a la función que verifica si se deben mostrar el botón
+    mostrarBotonSiEsValido();
+  });
+
+  // Evento al cambiar el select de asientos
+  $(document).on('change', '#asientosSelect', function () {
+    console.log("Cambio en selección de asientos");
+
+    // Llama a la función que verifica si se deben mostrar el botón
+    mostrarBotonSiEsValido();
+  });
+});
 
 $('#tablePrec1 tbody').on('click', '.btn-elegir', function () {
   var viajeID = $(this).data('id');
-  cargarDetalleViaje(viajeID);
-  $('#miModal').modal('show');
+  cargarDetalleViaje(viajeID)
+    .then(response => {
+      // Prepara el contenido del modal aquí con los datos de `response`
+      // Ahora inicia la inicialización de los mapas
+      return Promise.all([
+        import('./prueba.js').then(module => module.initMap('map1', 'autocomplete1', response.resultado.inicioViaje)),
+        import('./prueba.js').then(module => module.initMap('map2', 'autocomplete2', response.resultado.finViaje)),
+        actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1'),
+        actualizarMapaConDireccion(response.resultado.finViaje, 'map2'),
+      ]);
+    })
+    .then(() => {
+      // Todo está listo, muestra el modal
+      $('#miModal').modal('show');
+    })
+    .catch(error => {
+      console.error("Error cargando los detalles del viaje o inicializando los mapas:", error);
+    });
 });
 import { dominio } from '../js/validador.js';
-import { actualizarMapaConDireccion } from '../js/prueba.js';
+import { actualizarMapaConDireccion, initMap } from '../js/prueba.js';

@@ -1,6 +1,7 @@
 window.esMapaEstatico = false;
 document.addEventListener('DOMContentLoaded', function () {
     accInsViaj();
+    initMaps(); // Llamada a la función para inicializar los mapas
 });
 function accInsViaj() {
     const btnPublicar = document.getElementById('btnPublicar');
@@ -40,12 +41,9 @@ function grabarForm() {
         pagoType: metodoPago,
         mitkn: token
     };
-
     console.log(dataCarrera);
     console.log("VALOR DE LA RUTA");
     console.log(`${dominio}/regViaje/`);
-
-
     $.ajax({
         type: 'POST',
         url: `${dominio}/regViaje/`,
@@ -59,7 +57,8 @@ function grabarForm() {
         success: function (response) {
             if (response["mensaje"]) {
                 console.log("correctooooooo", response["mensaje"]);
-                window.location.href = 'inicio.html';
+                // alert("se guardo");
+                // window.location.href = 'inicio.html';
                 // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
             } else {
                 console.log("Hubo un problema con la respuesta del servidor.");
@@ -70,7 +69,8 @@ function grabarForm() {
             console.log("jqXHR responseText:", jqXHR.responseText);
             console.log("textStatus:", textStatus);
             console.log("errorThrown:", errorThrown);
-            window.location.href = 'buscarCliB.html';
+            // window.location.href = 'buscarCliB.html';
+            // alert("PROBLEMAS");
             // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje al usuario
         }
     });
@@ -117,5 +117,24 @@ function verificarCampos() {
 //         console.log("errorThrown:", errorThrown);
 //     }
 // });
+
+// Definir la función que inicializa ambos mapas
+function initMaps() {
+    // Asegúrate de que esta ruta de importación coincide con la ubicación de tus archivos y funciones
+    import('./prueba.js').then((module) => {
+        module.initMap('map1', 'autocomplete1').then(() => {
+            console.log('Mapa 1 inicializado correctamente');
+        }).catch(error => {
+            console.error('Error inicializando el mapa 1:', error);
+        });
+
+        module.initMap('map2', 'autocomplete2').then(() => {
+            console.log('Mapa 2 inicializado correctamente');
+        }).catch(error => {
+            console.error('Error inicializando el mapa 2:', error);
+        });
+    });
+}
+
 
 import { dominio } from '../js/validador.js';

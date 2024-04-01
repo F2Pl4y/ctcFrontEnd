@@ -7,7 +7,7 @@ function ajustarCamposRequeridos() {
     // Por simplicidad, asumiré que si el usuario está interactuando con el mapa 1, entonces 'autocomplete1' es el relevante, y similarmente para 'autocomplete2'.
     // Debes ajustar esta lógica a tu caso de uso específico.
     if (document.getElementById('map1').style.display !== 'none') { // Suponiendo que manejas la visibilidad de tus mapas de esta manera
-        alert("map1Prueba.js");
+        // alert("map1Prueba.js");
         document.getElementById('autocomplete1').setAttribute('required', '');
         document.getElementById('autocomplete2').removeAttribute('required');
     } else if (document.getElementById('map2').style.display !== 'none') {
@@ -16,7 +16,7 @@ function ajustarCamposRequeridos() {
         document.getElementById('autocomplete1').removeAttribute('required');
     }
 };
-async function initMap(mapElementId, autocompleteElementId) {
+export async function initMap(mapElementId, autocompleteElementId) {
 
     // return new Promise((resolve, reject) => {
 
@@ -46,12 +46,17 @@ async function initMap(mapElementId, autocompleteElementId) {
                     // streetViewControl: false,
                     // fullscreenControl: false
                     zoom: 17,
-                    draggable: esMapaEstatico,
+                    draggable: true,
+                    // draggable: !esMapaEstatico,
                     zoomControl: !esMapaEstatico,
+                    // zoomControl: true,
                     scrollwheel: esMapaEstatico,
-                    disableDoubleClickZoom: esMapaEstatico,
+                    // scrollwheel: !esMapaEstatico,
+                    // disableDoubleClickZoom: esMapaEstatico,
+                    disableDoubleClickZoom: !esMapaEstatico,
                     streetViewControl: !esMapaEstatico,
                     fullscreenControl: !esMapaEstatico,
+                    // mapTypeControl: !esMapaEstatico
                     mapTypeControl: !esMapaEstatico
                 };
                 const map = new google.maps.Map(document.getElementById(mapElementId), options);
@@ -203,36 +208,63 @@ export function actualizarMapaConDireccion(direccion, mapElementId) {
         }
     });
 };
-$('#miModal').on('shown.bs.modal', function () {
-    Promise.all([
-        initMap('map1', 'autocomplete1'),
-        initMap('map2', 'autocomplete2')
-    ]).then(() => {
-        console.log("THEN PROMESA DE: map1 y map2");
+// $('#miModal').on('shown.bs.modal', function () {
+//     Promise.all([
+//         initMap('map1', 'autocomplete1'),
+//         initMap('map2', 'autocomplete2')
+//     ]).then(() => {
+//         console.log("THEN PROMESA DE: map1 y map2");
 
-        // Verifica que los mapas estén definidos antes de intentar redimensionarlos
-        if (mapas['map1']) {
-            console.log("entre en mapas['map1'])")
-            google.maps.event.trigger(mapas['map1'], 'resize');
-            // Aquí puedes ajustar el centro si es necesario, por ejemplo:
-            // mapas['map1'].setCenter(nuevaUbicacion);
-        }
+//         // Verifica que los mapas estén definidos antes de intentar redimensionarlos
+//         if (mapas['map1']) {
+//             console.log("entre en mapas['map1'])")
+//             google.maps.event.trigger(mapas['map1'], 'resize');
+//             // Aquí puedes ajustar el centro si es necesario, por ejemplo:
+//             // mapas['map1'].setCenter(nuevaUbicacion);
+//         }
+//         if (mapas['map2']) {
+//             console.log("entre en mapas['map2'])")
+//             google.maps.event.trigger(mapas['map2'], 'resize');
+//             // Igual que para map1, ajusta el centro si es necesario
+//             // mapas['map2'].setCenter(nuevaUbicacion);
+//         }
+//         // Lugar adecuado para llamar a actualizarMapaConDireccion si tienes las direcciones listas
+//         // Nota: asegúrate de tener las direcciones o coordenadas necesarias disponibles
+//         // actualizarMapaConDireccion(direccion1, 'map1');
+//         // actualizarMapaConDireccion(direccion2, 'map2');
+//     }).catch(error => {
+//         console.error("Error al inicializar los mapas: ", error);
+//     });
+// });
+// $('#tablePrec1 tbody').on('click', '.btn-elegir', function () {
+//     var viajeID = $(this).data('id');
+//     $('#miModal').modal('show');
 
-        if (mapas['map2']) {
-            console.log("entre en mapas['map2'])")
-            google.maps.event.trigger(mapas['map2'], 'resize');
-            // Igual que para map1, ajusta el centro si es necesario
-            // mapas['map2'].setCenter(nuevaUbicacion);
-        }
+//     $('#miModal').one('shown.bs.modal', function () {
+//         cargarDetalleViaje(viajeID)
+//             .then(response => {
+//                 // Aquí tienes acceso a response.resultado.inicioViaje y response.resultado.finViaje
+//                 // Inicializa los mapas después de que el modal se haya mostrado completamente
+//                 Promise.all([
+//                     initMap('map1', 'autocomplete1'),
+//                     initMap('map2', 'autocomplete2')
+//                 ]).then(() => {
+//                     console.log("Mapas inicializados");
 
-        // Lugar adecuado para llamar a actualizarMapaConDireccion si tienes las direcciones listas
-        // Nota: asegúrate de tener las direcciones o coordenadas necesarias disponibles
-        // actualizarMapaConDireccion(direccion1, 'map1');
-        // actualizarMapaConDireccion(direccion2, 'map2');
-    }).catch(error => {
-        console.error("Error al inicializar los mapas: ", error);
-    });
-});
+//                     // Actualiza las direcciones después de que los mapas estén inicializados
+//                     actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
+//                     actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
+//                 }).catch(error => {
+//                     console.error("Error inicializando los mapas:", error);
+//                 });
+//             })
+//             .catch(error => {
+//                 console.error("Error al obtener detalles del viaje:", error);
+//             });
+//     });
+// });
+
+
 
 // $('#miModal').on('shown.bs.modal', function () {
 //     Promise.all([

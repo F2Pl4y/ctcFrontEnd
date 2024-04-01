@@ -175,9 +175,9 @@ function generarHoras() {
         var hora = new Date(horaInicio.getTime() + i * intervalo * 60000);
         var horaFormateada = hora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        // Agregar "AM" o "PM"
-        var ampm = hora.getHours() >= 12 ? "PM" : "AM";
-        horaFormateada += " " + ampm;
+        // // Agregar "AM" o "PM"
+        // var ampm = hora.getHours() >= 12 ? "PM" : "AM";
+        // horaFormateada += " " + ampm;
 
         // Crear un nuevo enlace
         var enlace = document.createElement("a");
