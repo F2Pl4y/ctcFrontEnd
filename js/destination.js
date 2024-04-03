@@ -27,7 +27,7 @@ function buscarForm() {
     jsonFecha: iptFecha,
     mitkn: token
   };
-  console.log(dataRuta);
+  // console.log(dataRuta);
   $.ajax({
     type: 'POST',
     url: `${dominio}/selViaje/`,
@@ -51,7 +51,7 @@ function buscarForm() {
           var fechaFormateada = moment(iptFecha, "MM/DD/YYYY").format('dddd: D [de] MMMM'); // Cambia el formato aquí según necesites
           $('#fechaSeleccionada').text(fechaFormateada);
         }
-        console.log("correctooooooo", response["mensaje"]);
+        // console.log("correctooooooo", response["mensaje"]);
         // Limpiar el tbody para asegurar que no se dupliquen los datos
         $('#tablePrec1 tbody').empty();
         // Iterar sobre cada elemento del array de mensajes y crear las filas de la tabla
@@ -73,21 +73,9 @@ function buscarForm() {
                 </tr>`;
           $('#tablePrec1 tbody').append(fila);
         });
-        // Añade el listener aquí para que se aplique a los botones generados dinámicamente
-        // $('.btn-elegir').on('click', function () {
-        //     var viajeID = $(this).data('id');
-        //     cargar DetalleViaje(viajeID);
-        //     // Aquí puedes hacer cosas antes de mostrar el modal, como configurar su contenido basado en el botón que fue presionado
-        //     // Por ejemplo, puedes usar $(this).data('id') para obtener el identificador asociado con el botón y usarlo para buscar más información
-        //     $('#miModal').modal('show'); // Muestra el modal
-        // });
         generarBotonesYMostrarFilas("tablePrec1", 0);
-        // $('#tablePrec1 tbody').on('click', '.btn-elegir', function () {
-        //   var viajeID = $(this).data('id');
-        //   cargarDetalleViaje(viajeID);
-        //   $('#miModal').modal('show');
-        // });
-      } else {
+      }
+      else {
         var iptFecha = $('#iptFecha').val();
         console.log("iptFecha:", iptFecha);
         // Formatear la fecha para el encabezado de la tabla
@@ -149,20 +137,13 @@ function cargarDetalleViaje(viajeID) {
         var hora = moment(response.resultado.hora);
         var horaFormateada = hora.format('LLLL');
         $('#miModal .modal-title').text("Detalles del Viaje");
-
-        // $('#autocomplete1').val(response.resultado.inicioViaje);
-        // actualizarMapaConDireccion(response.resultado.inicioViaje);
-        // Suponiendo que quieres actualizar el mapa con ID 'map1' con la dirección de inicio del viaje
-        // actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
-        // actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
-        // console.log(mapas["map1"]);
-        // Actualiza el cuerpo del modal con la información del viaje
         $('#miModal .modal-body').html(`
                 <p>DETALLE DE PARTIDA: ${response.resultado.detalle1Viaje}</p>
                 <p>DETALLE DE PARTIDA: ${response.resultado.detalle2Viaje}</p>
                 <p>FECHA: ${horaFormateada}</p>
-                <p>COSTO: ${response.resultado.costo}</p>
+                <p>COSTO POR PERSONA: ${response.resultado.costo}</p>
                 <p>ASIENTOS DISPONIBLES: ${response.resultado.asientos}</p>
+                <p>AUTO: ${response.resultado.asientos}</p>
           <form id="formCond">
             <div class="form-col">
               <!-- INICIO: modal del tipo de carro -->
@@ -287,10 +268,6 @@ function cargarDetalleViaje(viajeID) {
                           <span>ASIENTOS</span>
                           <div class="input-group-prepend">
                             <select id="asientosSelect" class="custom-select custom-select-lg ">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="3">4</option>
                             </select>
                           </div>
                         </div>
@@ -326,8 +303,6 @@ function cargarDetalleViaje(viajeID) {
         // Estos elementos deben existir dentro de la estructura HTML que acabas de insertar
         $('#autocomplete1').val(response.resultado.inicioViaje).attr('readonly', true);
         $('#autocomplete2').val(response.resultado.finViaje).attr('readonly', true);
-        console.log(response.resultado.inicioViaje);
-        console.log(response.resultado.finViaje);
         // actualizarMapaConDireccion (response.mensaje.inicioViaje, 'map1');
         // actualizarMapaConDireccion (response.mensaje.finViaje, 'map2');
         // Ahora, actualizamos el select de asientos basado en los asientos disponibles
@@ -348,19 +323,12 @@ function cargarDetalleViaje(viajeID) {
             $(this).addClass('seleccionada');
             // Mostrar en la consola el valor de la tarjeta seleccionada
             // Aquí puedes hacer algo con el valor seleccionado, por ejemplo:
-            console.log("Has seleccionado el método de pago con el valor:", valor);
+            // console.log("Has seleccionado el método de pago con el valor:", valor);
           });
         });
         // Muestra el modal
         $('#miModal').modal('show');
-        // $('#miModal').on('shown.bs.modal', function () {
-        // setTimeout(function () {
-        //   actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
-        //   actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
-        // }, 50);
-        // }
-        // actualizarMapaConDireccion(response.resultado.inicioViaje, 'map1');
-        // actualizarMapaConDireccion(response.resultado.finViaje, 'map2');
+
       },
       error: function (jqXHR, textStatus, errorThrown) {
         console.log("Error al cargar el detalle del viaje", textStatus, errorThrown, jqXHR);
@@ -395,17 +363,14 @@ $(document).ready(function () {
     $('.seleccionable').removeClass('seleccionada');
     // Marcar solo la tarjeta clicada
     $(this).addClass('seleccionada');
-
-    console.log("Tarjeta seleccionada con valor: ", valor);
-
+    // console.log("Tarjeta seleccionada con valor: ", valor);
     // Llama a la función que verifica si se deben mostrar el botón
     mostrarBotonSiEsValido();
   });
 
   // Evento al cambiar el select de asientos
   $(document).on('change', '#asientosSelect', function () {
-    console.log("Cambio en selección de asientos");
-
+    // console.log("Cambio en selección de asientos");
     // Llama a la función que verifica si se deben mostrar el botón
     mostrarBotonSiEsValido();
   });

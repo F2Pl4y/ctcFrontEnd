@@ -50,7 +50,7 @@ export async function initMap(mapElementId, autocompleteElementId) {
                     // draggable: !esMapaEstatico,
                     zoomControl: !esMapaEstatico,
                     // zoomControl: true,
-                    scrollwheel: esMapaEstatico,
+                    scrollwheel: true,
                     // scrollwheel: !esMapaEstatico,
                     // disableDoubleClickZoom: esMapaEstatico,
                     disableDoubleClickZoom: !esMapaEstatico,
