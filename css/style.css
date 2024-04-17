@@ -12004,13 +12004,13 @@ textarea.form-control {
 }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 3em 0;
   position: relative;
   width: 100%;
 }
 @media (max-width: 767.98px) {
   .ftco-section {
-    padding: 6em 0;
+    padding: 3em 0;
   }
 }
 
@@ -13087,7 +13087,6 @@ textarea.form-control {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 #ftco-loader.show {
   -webkit-transition: opacity 0.4s ease-out, visibility 0s linear 0s;
   -o-transition: opacity 0.4s ease-out, visibility 0s linear 0s;
@@ -13095,7 +13094,6 @@ textarea.form-control {
   visibility: visible;
   opacity: 1;
 }
-
 #ftco-loader .circular {
   -webkit-animation: loader-rotate 2s linear infinite;
   animation: loader-rotate 2s linear infinite;
@@ -13107,7 +13105,6 @@ textarea.form-control {
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-
 #ftco-loader .path {
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
@@ -13122,14 +13119,12 @@ textarea.form-control {
     transform: rotate(360deg);
   }
 }
-
 @keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-
 @-webkit-keyframes loader-dash {
   0% {
     stroke-dasharray: 1, 200;
@@ -13144,7 +13139,6 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
-
 @keyframes loader-dash {
   0% {
     stroke-dasharray: 1, 200;

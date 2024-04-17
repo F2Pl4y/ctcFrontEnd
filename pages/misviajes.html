@@ -66,6 +66,138 @@
   <section class="ftco-section services-section">
     <div class="container">
       <div class="row d-flex table-responsive">
+        <table class="table tablePrec2 thead-dark" id="tablePrec2">
+          <thead>
+            <tr class="thead-dark">
+              <th colspan="12" scope="col mx-auto">VIAJES ACTIVOS</th>
+            </tr>
+            <tr class="table table-secondary">
+              <th scope="col mx-auto">#</th>
+              <th scope="col mx-auto">PARTIDA</th>
+              <th scope="col mx-auto">LLEGADA</th>
+              <th scope="col mx-auto">HORA DE PARTIDA</th>
+              <th scope="col mx-auto">HORA DE LLEGADA</th>
+              <th scope="col mx-auto">FECHA</th>
+              <th scope="col mx-auto">COSTO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Lima</td>
+              <td>Arequipa</td>
+              <td>07:45 am</td>
+              <td>01:30 pm</td>
+              <td>12/13/2023</td>
+              <td>65.0</td>
+            </tr>
+            <!-- Fila 2 -->
+            <tr>
+              <th scope="row">2</th>
+              <td>Arequipa</td>
+              <td>Cusco</td>
+              <td>10:15 am</td>
+              <td>03:45 pm</td>
+              <td>12/13/2023</td>
+              <td>78.2</td>
+            </tr>
+            <!-- Fila 3 -->
+            <tr>
+              <th scope="row">3</th>
+              <td>Lima</td>
+              <td>Trujillo</td>
+              <td>08:30 am</td>
+              <td>12:30 pm</td>
+              <td>12/13/2023</td>
+              <td>55.5</td>
+            </tr>
+            <!-- Fila 4 -->
+            <tr>
+              <th scope="row">4</th>
+              <td>Arequipa</td>
+              <td>Puno</td>
+              <td>09:00 am</td>
+              <td>02:15 pm</td>
+              <td>12/13/2023</td>
+              <td>70.8</td>
+            </tr>
+            <!-- Fila 5 -->
+            <tr>
+              <th scope="row">5</th>
+              <td>Lima</td>
+              <td>Ica</td>
+              <td>07:00 am</td>
+              <td>11:00 am</td>
+              <td>12/13/2023</td>
+              <td>50.2</td>
+            </tr>
+            <!-- Fila 6 -->
+            <tr>
+              <th scope="row">6</th>
+              <td>Cusco</td>
+              <td>Puno</td>
+              <td>11:30 am</td>
+              <td>04:45 pm</td>
+              <td>12/13/2023</td>
+              <td>85.5</td>
+            </tr>
+            <!-- Fila 7 -->
+            <tr>
+              <th scope="row">7</th>
+              <td>Trujillo</td>
+              <td>Chiclayo</td>
+              <td>01:15 pm</td>
+              <td>05:30 pm</td>
+              <td>12/13/2023</td>
+              <td>62.3</td>
+            </tr>
+            <!-- Fila 8 -->
+            <tr>
+              <th scope="row">8</th>
+              <td>Lima</td>
+              <td>Pisco</td>
+              <td>09:45 am</td>
+              <td>02:00 pm</td>
+              <td>12/13/2023</td>
+              <td>68.7</td>
+            </tr>
+            <!-- Fila 9 -->
+            <tr>
+              <th scope="row">9</th>
+              <td>Arequipa</td>
+              <td>Nazca</td>
+              <td>10:30 am</td>
+              <td>03:15 pm</td>
+              <td>12/13/2023</td>
+              <td>75.4</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Botones de paginación se generarán dinámicamente aquí -->
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <div class="block-27">
+                <ul id="tablePrec2PaginationButtons">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+    </div>
+
+
+    <div class="container" id="formularioContainer"></div>
+  </section>
+
+  <section class="ftco-section services-section">
+    <div class="container">
+      <div class="row d-flex table-responsive">
         <table class="table tablePrec1 thead-dark" id="tablePrec1">
           <thead>
             <tr class="thead-dark">
@@ -189,63 +321,6 @@
     </div>
   </section>
 
-
-  <!--<section class="ftco-section ftco-about img"style="background-image: url(../images/bg_4.jpg);">
-			<div class="overlay"></div>
-			<div class="container py-md-5">
-				<div class="row py-md-5">
-					<div class="col-md d-flex align-items-center justify-content-center">
-						<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
-							<span class="fa fa-play"></span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>-->
-
-  <!-- <section class="ftco-section ftco-about ftco-no-pt img">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-12 about-intro">
-            <div class="row">
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div
-                  class="img d-flex w-100 align-items-center justify-content-center"
-                  style="background-image: url(../images/about-1.jpg)"
-                ></div>
-              </div>
-              <div class="col-md-6 pl-md-5 py-5">
-                <div class="row justify-content-start pb-3">
-                  <div class="col-md-12 heading-section ftco-animate">
-                    <span class="subheading">¿Porque Elegirnos?</span>
-                    <h2 class="mb-4">
-                      Hacemos que su viaje sea memorable y seguro con nosotros
-                    </h2>
-                    <p><a href="#" class="btn btn-primary">Buscar Ruta</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-  <!--<section class="ftco-intro ftco-section ftco-no-pt">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-12 text-center">
-						<div class="img"  style="background-image: url(../images/bg_2.jpg);">
-							<div class="overlay"></div>
-							<h2>We Are Pacific A Travel Agency</h2>
-							<p>We can manage your dream building A small river named Duden flows by their place</p>
-							<p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>-->
-
   <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(../images/bg_3.jpg)">
     <div class="container">
       <div class="row mb-5">
@@ -341,6 +416,7 @@
   <script src="../js/main.js"></script>
   <script src="https://kit.fontawesome.com/742049c140.js" crossorigin="anonymous"></script>
   <script src="../js/myJS.js"></script>
+  <script src="../js/misviajes.js"></script>
 
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

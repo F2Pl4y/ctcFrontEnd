@@ -119,6 +119,14 @@ function recortarTexto(texto, longitudMax) {
     return texto;
   }
 }
+function formatoHora2(fechaHoraGMT) {
+  // Crea un objeto moment con la fecha en GMT
+  let fechaMoment = moment(fechaHoraGMT, 'ddd, DD MMM YYYY HH:mm:ss GMT');
+  // Formatea la fecha al estilo español
+  let fechaFormateada = fechaMoment.format('dddd D [de] MMMM, h:mm a'); // 'a' es para AM/PM
+  return fechaFormateada;
+}
+
 function cargarDetalleViaje(viajeID) {
   return new Promise((resolve, reject) => { // Envolver el contenido en una nueva Promesa
     $.ajax({
@@ -134,16 +142,54 @@ function cargarDetalleViaje(viajeID) {
       success: function (response) {
         resolve(response); // Resolver la promesa con la respuesta
         // Parsea la fecha/hora recibida a un objeto moment
-        var hora = moment(response.resultado.hora);
-        var horaFormateada = hora.format('LLLL');
+        // var hora = moment(response.resultado.hora);
+        // var horaFormateada = hora.format('LLLL');
+        // var horaFormateada = formatoHora(response.resultado.hora);
+        var horaFormateada = formatoHora2(response.resultado.hora);
+
+        // Construir el HTML para el método de pago
+        let metodoPagoHTML = '';
+        switch (response.resultado.tPago) {
+          case '1':
+            metodoPagoHTML = `
+        <div class="col mb-3" style="max-height: 8vh; max-width:10vh;">
+          <div class="card seleccionable" data-valor="1" id="izquierda" style="width: 100%;">
+            <img src="https://seeklogo.com/images/Y/yape-logo-36579BE1F6-seeklogo.com.png" class="card-img-top" alt="Imagen Izquierda" style="height: 100%;">
+          </div>
+        </div>`;
+            break;
+          case '2':
+            metodoPagoHTML = `
+        <div class="col mb-3" style="max-height: 8vh; max-width:10vh;">
+          <div class="card seleccionable" data-valor="2" id="derecha" style="width: 100%;">
+            <img src="https://seeklogo.com/images/P/plin-logo-967A4AF583-seeklogo.com.png" class="card-img-top" alt="Imagen Derecha" style="height: 100%;">
+          </div>
+        </div>`;
+            break;
+          case '3':
+            metodoPagoHTML = `
+        <div class="col mb-3" style="max-height: 8vh; max-width:10vh;">
+          <div class="card seleccionable" data-valor="1" id="izquierda" style="width: 100%;">
+            <img src="https://seeklogo.com/images/Y/yape-logo-36579BE1F6-seeklogo.com.png" class="card-img-top" alt="Imagen Izquierda" style="height: 100%;">
+          </div>
+        </div>
+        <div class="col mb-3" style="max-height: 8vh; max-width:10vh;">
+          <div class="card seleccionable" data-valor="2" id="derecha" style="width: 100%;">
+            <img src="https://seeklogo.com/images/P/plin-logo-967A4AF583-seeklogo.com.png" class="card-img-top" alt="Imagen Derecha" style="height: 100%;">
+          </div>
+        </div>`;
+            break;
+        }
         $('#miModal .modal-title').text("Detalles del Viaje");
         $('#miModal .modal-body').html(`
-                <p>DETALLE DE PARTIDA: ${response.resultado.detalle1Viaje}</p>
-                <p>DETALLE DE PARTIDA: ${response.resultado.detalle2Viaje}</p>
-                <p>FECHA: ${horaFormateada}</p>
-                <p>COSTO POR PERSONA: ${response.resultado.costo}</p>
-                <p>ASIENTOS DISPONIBLES: ${response.resultado.asientos}</p>
-                <p>AUTO: ${response.resultado.asientos}</p>
+                <p>Detalle de partida: ${response.resultado.detalle1Viaje}</p>
+                <p>Detalle de salida: ${response.resultado.detalle2Viaje}</p>
+                <p>Fecha de salida: ${horaFormateada}</p>
+                <p>Costo por persona: ${response.resultado.costo}</p>
+                <p>Asientos disponibles: ${response.resultado.asientos}</p>
+                
+                <p>Vehiculo: ${response.resultado.vehiculo}</p>
+                <span>METODO DE PAGO DINAMICO</span>
           <form id="formCond">
             <div class="form-col">
               <!-- INICIO: modal del tipo de carro -->
@@ -275,21 +321,7 @@ function cargarDetalleViaje(viajeID) {
                       <div class="gridV4">
                         <!-- <div class="col mb-3"> -->
                         <span>METODO DE PAGO DINAMICO</span>
-                        <div class="row justify-content-center align-items-center">
-                          <!-- Parte izquierda con imagen | yape-->
-                          <div class="col mb-3" style="max-height: 8vh; max-width:10vh;">
-                            <div class="card seleccionable" data-valor="1" id="izquierda" style="width: 100%;">
-                              <img src="https://seeklogo.com/images/Y/yape-logo-36579BE1F6-seeklogo.com.png" class="card-img-top" alt="Imagen Izquierda" style="height: 100%;">
-                            </div>
-                          </div>
-                          <!-- colocar el vw o vh dependiendo de cual sea mayor -->
-                          <!-- Parte derecha con imagen | plin-->
-                          <div class="col mb-3" style="max-height: 8vh; max-width:10vh;">
-                            <div class="card seleccionable" data-valor="2" id="derecha" style="width: 100%;">
-                              <img src="https://seeklogo.com/images/P/plin-logo-967A4AF583-seeklogo.com.png" class="card-img-top" alt="Imagen Derecha" style="height: 100%;">
-                            </div>
-                          </div>
-                        </div>
+                        <div class="row justify-content-center align-items-center">${metodoPagoHTML}</div>
                         <!-- </div> -->
                       </div>
                   </div>
