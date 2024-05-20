@@ -6,6 +6,7 @@ function setSession(token) {
 var rutaActual = window.location.pathname;
 // console.log("estoy dentro de: ", rutaActual);
 // console.log("estoy en window.location.pathname.endsWith(.html):", window.location.pathname.endsWith(".html"));
+console.log("el rutaActual es: ", rutaActual);
 // Función para validar la sesión con el backend.
 function isSessionValid(token) {
     return new Promise((resolve, reject) => {
@@ -19,9 +20,10 @@ function isSessionValid(token) {
             success: function (response) {
                 console.log("isSessionValid - response ->", response);
                 console.log("isSessionValid - response: DNI ->", response.resultado['TKN'][0]);
-                console.log("isSessionValid['exito']:\n", response['exito']);
+                console.log("isSessionValid['exito']--> ", response['exito']);
                 if (response['exito']) {//si es false entonces...
                     console.log("entre a response['exito']");
+                    // alert("entramos :)");
                     // let isInicio = window.location.pathname.endsWith("inicio.html");
                     // if (isInicio) {
                     //     window.location.h ref = '../index.html';
@@ -36,13 +38,16 @@ function isSessionValid(token) {
                         if (token) {
                             isSessionValid(token).then(isValidSession => {
                                 if (isValidSession) {
+                                    alert("te mantienes en index.html--------");
                                     console.log("te mantienes en index.html");
 
                                 } else {
+                                    alert("no tienes token y te quedas en index.html ----");
                                     console.log("no tienes token y te quedas en index.html");
                                 }
                             });
                         } else {
+                            alert("no tienes token y te quedas en index.html");
                             console.log("no tienes token y te quedas en index.html");
                         }
                     }
@@ -59,13 +64,12 @@ function isSessionValid(token) {
     });
 }
 // Función para cerrar sesión.
-function cerrarSesion() {
-    sessionStorage.setItem("access_token", null); // Limpia el token almacenado.
-    window.location.href = 'Login.html'; // Redirige al usuario a la página de inicio de sesión.
-}
+// function cerrarSesion() {
+//     sessionStorage.setItem("access_token", null); // Limpia el token almacenado.
+//     window.location.href = 'Login.html'; // Redirige al usuario a la página de inicio de sesión.
+// }
 // Función para verificar la sesión al cargar la página.
 function checkSession() {
-
     let tokenC = sessionStorage.getItem("access_token");
     let isLogin = window.location.pathname.endsWith("Login.html");
     // console.log("valor de tokenc:", tokenC);
@@ -74,7 +78,8 @@ function checkSession() {
     // if (isLogin && tokenC) {
     if (!tokenC == null || tokenC) {
         // alert("entramos");
-        console.log("esto en tokenC || !tokenC == null)");
+        console.log("!tokenC == null || tokenC ::: ", !tokenC, " // ", tokenC);
+        console.log("valor de la ruta:", isLogin)
         isSessionValid(tokenC).then(isValidSession => {
             console.log("valor de isValidSession", isValidSession)
             if (isValidSession) {
@@ -143,5 +148,3 @@ window.addEventListener('load', (e) => {
     iniciarSesion(); // Esta llamada debería condicionarse a estar en la página de login específicamente.
     console.log("llamando al inicio");
 });
-
-

@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
 function generarFormulario() {
     // Identificar el contenedor donde se insertará el formulario
     const contenedorFormulario = document.getElementById('formularioContainer');
-    const valortkn = sessionStorage.getItem("access_token");
-    const dataRuta = {
-        mitkn: valortkn
-    };
+    // const valortkn = sessionStorage.getItem("access_token");
+    // const dataRuta = {
+    //     mitkn: valortkn
+    // };
     $.ajax({
         type: 'GET', // Ajusta este método según sea necesario para tu API
         url: `${dominio}/selVehic/`, // Asegúrate de que esta URL sea correcta para tu API
@@ -145,11 +145,8 @@ function generarFormulario() {
                     '<select id="carSelect" class="custom-select custom-select-lg col">',
                     `<select id="carSelect" class="custom-select custom-select-lg col">${opcionesVehiculos}</select>`
                 );
-
                 // Insertar el formulario en el contenedor
                 contenedorFormulario.innerHTML = formularioHTML;
-
-
                 // Ahora que el select de vehículos está en el DOM, configura las opciones y los event listeners
                 const selectVehiculos = document.getElementById('carSelect');
                 selectVehiculos.innerHTML = opcionesVehiculos; // Establece las opciones de vehículos
@@ -270,11 +267,9 @@ $(document).on('click', '.seleccionable', function () {
     $(this).addClass('seleccionada');
     verificarCampos(); // Esta llamada asegura que el botón se muestre/oculte adecuadamente al seleccionar un método de pago
     // Ejemplo de cómo se podría llamar después de seleccionar la hora en el modal
-
     $('#staticBackdrop').on('hide.bs.modal', function () {
         verificarCampos(); // Verifica los campos cuando el modal se cierra
     });
-
 });
 function verificarCampos() {
     var autocomplete1 = $('#autocomplete1').val();
@@ -300,7 +295,6 @@ function initMaps() {
                 console.error('Error inicializando el mapa 1:', error);
             });
         }
-
         if (document.getElementById('map2') && document.getElementById('autocomplete2')) {
             module.initMap('map2', 'autocomplete2').then(() => {
             }).catch(error => {

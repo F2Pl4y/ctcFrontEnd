@@ -1,14 +1,13 @@
-generarBotonesYMostrarFilas("tablePrec1", 0);
-generarBotonesYMostrarFilas("tablePrec2", 0);
+moment.locale('es');
 function misViajesActive() {
-    const contenedorFormulario = document.getElementById('formularioContainer');
+    // const contenedorFormulario = document.getElementById('formularioContainer');
     // const valortkn = sessionStorage.getItem("access_token");
     // const dataRuta = {
     //     mitkn: valortkn
     // };
     $.ajax({
         type: 'GET', // Ajusta este método según sea necesario para tu API
-        url: `${dominio}/---/`, // Asegúrate de que esta URL sea correcta para tu API
+        url: `${dominio}/selViaUserAct/`, // Asegúrate de que esta URL sea correcta para tu API
         // data: JSON.stringify(dataRuta),
         // dataType: 'json',
         contentType: 'application/json',
@@ -19,181 +18,155 @@ function misViajesActive() {
             }
         },
         success: function (response) {
-            let formularioHTML;
-            // Crear el formulario y su contenido
-            formularioHTML = `
-            <div class="row d-flex table-responsive">
-                <table class="table tablePrec2 thead-dark" id="tablePrec2">
-                    <thead>
-                        <tr class="thead-dark">
-                            <th colspan="12" scope="col mx-auto">VIAJES ACTIVOS</th>
-                        </tr>
-                        <tr class="table table-secondary">
-                            <th scope="col mx-auto">#</th>
-                            <th scope="col mx-auto">PARTIDA</th>
-                            <th scope="col mx-auto">LLEGADA</th>
-                            <th scope="col mx-auto">HORA DE PARTIDA</th>
-                            <th scope="col mx-auto">HORA DE LLEGADA</th>
-                            <th scope="col mx-auto">FECHA</th>
-                            <th scope="col mx-auto">COSTO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lima</td>
-                            <td>Arequipa</td>
-                            <td>07:45 am</td>
-                            <td>01:30 pm</td>
-                            <td>12/13/2023</td>
-                            <td>65.0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Arequipa</td>
-                            <td>Cusco</td>
-                            <td>10:15 am</td>
-                            <td>03:45 pm</td>
-                            <td>12/13/2023</td>
-                            <td>78.2</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Lima</td>
-                            <td>Trujillo</td>
-                            <td>08:30 am</td>
-                            <td>12:30 pm</td>
-                            <td>12/13/2023</td>
-                            <td>55.5</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Arequipa</td>
-                            <td>Puno</td>
-                            <td>09:00 am</td>
-                            <td>02:15 pm</td>
-                            <td>12/13/2023</td>
-                            <td>70.8</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Lima</td>
-                            <td>Ica</td>
-                            <td>07:00 am</td>
-                            <td>11:00 am</td>
-                            <td>12/13/2023</td>
-                            <td>50.2</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td>Cusco</td>
-                            <td>Puno</td>
-                            <td>11:30 am</td>
-                            <td>04:45 pm</td>
-                            <td>12/13/2023</td>
-                            <td>85.5</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">7</th>
-                            <td>Trujillo</td>
-                            <td>Chiclayo</td>
-                            <td>01:15 pm</td>
-                            <td>05:30 pm</td>
-                            <td>12/13/2023</td>
-                            <td>62.3</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">8</th>
-                            <td>Lima</td>
-                            <td>Pisco</td>
-                            <td>09:45 am</td>
-                            <td>02:00 pm</td>
-                            <td>12/13/2023</td>
-                            <td>68.7</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">9</th>
-                            <td>Arequipa</td>
-                            <td>Nazca</td>
-                            <td>10:30 am</td>
-                            <td>03:15 pm</td>
-                            <td>12/13/2023</td>
-                            <td>75.4</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Botones de paginación se generarán dinámicamente aquí -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col text-center">
-                            <div class="block-27">
-                                <ul id="tablePrec2PaginationButtons"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-            // Insertar el formulario en el contenedor
-            contenedorFormulario.innerHTML = formularioHTML;
-            // Ahora que tienes definido formularioHTML, puedes usarlo en .replace()
-            if (response.exito && response.resultado.length > 0) {
-                const opcionesVehiculos = response.resultado.map(function (vehiculo) {
-                    // return `<option value="${vehiculo.placa}" data-asientos="${vehiculo.asientos}">${vehiculo.marca} ${vehiculo.modelo} - ${vehiculo.placa}</option>`;
-                    return `<option value="${vehiculo.marca} ${vehiculo.modelo} - ${vehiculo.placa}" data-asientos="${vehiculo.asientos}">${vehiculo.marca} ${vehiculo.modelo} - ${vehiculo.placa}</option>`;
-                }).join('');
-                // Reemplaza el marcador de posición con las opciones reales
-                formularioHTML = formularioHTML.replace(
-                    '<select id="carSelect" class="custom-select custom-select-lg col">',
-                    `<select id="carSelect" class="custom-select custom-select-lg col">${opcionesVehiculos}</select>`
-                );
-
-                // Insertar el formulario en el contenedor
-                contenedorFormulario.innerHTML = formularioHTML;
-
-
-                // Ahora que el select de vehículos está en el DOM, configura las opciones y los event listeners
-                const selectVehiculos = document.getElementById('carSelect');
-                selectVehiculos.innerHTML = opcionesVehiculos; // Establece las opciones de vehículos
-                selectVehiculos.addEventListener('change', function () {
-                    updateSeatOptions(this);
+            var mensajes = Array.isArray(response.resultado) ? response.resultado : [response.resultado];
+            console.log("valores de mensajes:", mensajes);
+            if (Array.isArray(response.resultado) && response.resultado.length > 0) {
+                // Obtener la fecha del input
+                var iptFecha = $('#iptFecha').val();
+                // console.log("iptFecha:", iptFecha);
+                // Formatear la fecha para el encabezado de la tabla
+                if (iptFecha) {
+                    var fechaFormateada = moment(iptFecha, "MM/DD/YYYY").format('dddd: D [de] MMMM'); // Cambia el formato aquí según necesites
+                    $('#fechaSeleccionada').text(fechaFormateada);
+                }
+                // console.log("correctooooooo", response["mensaje"]);
+                // Limpiar el tbody para asegurar que no se dupliquen los datos
+                $('#tablePrec2 tbody').empty();
+                // Iterar sobre cada elemento del array de mensajes y crear las filas de la tabla
+                // response["mensaje"].forEach(function (item, index) {
+                mensajes.forEach(function (item, index) {
+                    var horaFormateada = formatoHora(item.fechaPart);
+                    var fila = `<tr>
+                            <th scope="row">${index + 1}</th>
+                            <td>${recortarTexto(item.inicio, 24)}</td>
+                            <td>${recortarTexto(item.final, 24)}</td>
+                            <td>${horaFormateada}</td>
+                            <td>${item.monto}</td>
+                        </tr>`;
+                    $('#tablePrec2 tbody').append(fila);
                 });
-                // Llama a updateSeatOptions inmediatamente para inicializar las opciones de asientos
-                updateSeatOptions(selectVehiculos);
-            } else {
-                console.log("No se recibieron datos para los vehículos o la llamada AJAX no fue exitosa.");
+                generarBotonesYMostrarFilas("tablePrec2", 0);
             }
-            // Insertar el formulario en el contenedor con los datos dinámicos
-            // contenedorFormulario.innerHTML = formularioHTML;
-            initMaps(); // Llamada a la función para inicializar los mapas
-
-            // Luego de insertar el formulario, añadir el eventListener al input 'horaSeleccionada'
-            document.getElementById('horaSeleccionada').addEventListener('click', function () {
-                $('#staticBackdrop').modal('show');
-            });
-            $('#fechaPartidaInput').datepicker({
-                format: "dd/mm/yyyy",
-                startDate: "today",
-                autoclose: true,
-                todayHighlight: true,
-                language: 'es' // Especifica el idioma español
-            });
-            // Luego de insertar el formulario, puedes inicializar componentes o agregar listeners si es necesario
-            // Asegúrate de que el botón 'publicar' exista antes de añadirle un event listener
-            const btnPublicar = document.getElementById('btnPublicar');
-            if (btnPublicar) {
-                btnPublicar.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    grabarForm();
-                });
+            else {
+                var iptFecha = $('#iptFecha').val();
+                console.log("iptFecha:", iptFecha);
+                // Formatear la fecha para el encabezado de la tabla
+                if (iptFecha) {
+                    var fechaFormateada = moment(iptFecha, "MM/DD/YYYY").format('dddd: D [de] MMMM'); // Cambia el formato aquí según necesites
+                    $('#fechaSeleccionada').text(fechaFormateada);
+                }
+                $('#tablePrec2 tbody').empty();
+                // Aquí puedes optar por mostrar un mensaje en la tabla indicando que no se encontraron datos
+                var filaVacia = `<tr><td colspan="7" class="text-center">No se encontraron datos para la búsqueda realizada.</td></tr>`;
+                $('#tablePrec2 tbody').append(filaVacia);
             }
-            // Inicializar cualquier otro componente o añadir event listeners adicionales aquí
-            verificarCampos(); // Asegúrate de llamar a verificar Campos para inicializar el estado del botón 'publicar'
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log("Error al cargar el detalle del viaje", textStatus, errorThrown, jqXHR);
-            // Manejar adecuadamente el error
+            // Manejar adecuadamente el error <td>${formatoHora2(viaje.fechaPart)}</td>
         }
     });
 }
-// import { dominio } from '../js/validador.js';
+function misViajesInactive() {
+    // const contenedorFormulario = document.getElementById('formularioContainer');
+    // const valortkn = sessionStorage.getItem("access_token");
+    // const dataRuta = {
+    //     mitkn: valortkn
+    // };
+    $.ajax({
+        type: 'GET', // Ajusta este método según sea necesario para tu API
+        url: `${dominio}/selViaUserIna/`, // Asegúrate de que esta URL sea correcta para tu API
+        // data: JSON.stringify(dataRuta),
+        // dataType: 'json',
+        contentType: 'application/json',
+        beforeSend: function (xhr) {
+            const token = sessionStorage.getItem("access_token");
+            if (token) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            }
+        },
+        success: function (response) {
+            var mensajes = Array.isArray(response.resultado) ? response.resultado : [response.resultado];
+            console.log("valores de mensajes:", mensajes);
+            if (Array.isArray(response.resultado) && response.resultado.length > 0) {
+                // Obtener la fecha del input
+                var iptFecha = $('#iptFecha').val();
+                // console.log("iptFecha:", iptFecha);
+                // Formatear la fecha para el encabezado de la tabla
+                if (iptFecha) {
+                    var fechaFormateada = moment(iptFecha, "MM/DD/YYYY").format('dddd: D [de] MMMM'); // Cambia el formato aquí según necesites
+                    $('#fechaSeleccionada').text(fechaFormateada);
+                }
+                // console.log("correctooooooo", response["mensaje"]);
+                // Limpiar el tbody para asegurar que no se dupliquen los datos
+                $('#tablePrec1 tbody').empty();
+                // Iterar sobre cada elemento del array de mensajes y crear las filas de la tabla
+                // response["mensaje"].forEach(function (item, index) {
+                mensajes.forEach(function (item, index) {
+                    var horaFormateada = formatoHora(item.fechaPart);
+                    var fila = `<tr>
+                            <th scope="row">${index + 1}</th>
+                            <td>${recortarTexto(item.inicio, 24)}</td>
+                            <td>${recortarTexto(item.final, 24)}</td>
+                            <td>${horaFormateada}</td>
+                            <td>${item.monto}</td>
+                        </tr>`;
+                    $('#tablePrec1 tbody').append(fila);
+                });
+                generarBotonesYMostrarFilas("tablePrec1", 0);
+            }
+            else {
+                var iptFecha = $('#iptFecha').val();
+                console.log("iptFecha:", iptFecha);
+                // Formatear la fecha para el encabezado de la tabla
+                if (iptFecha) {
+                    var fechaFormateada = moment(iptFecha, "MM/DD/YYYY").format('dddd: D [de] MMMM'); // Cambia el formato aquí según necesites
+                    $('#fechaSeleccionada').text(fechaFormateada);
+                }
+                $('#tablePrec1 tbody').empty();
+                // Aquí puedes optar por mostrar un mensaje en la tabla indicando que no se encontraron datos
+                var filaVacia = `<tr><td colspan="7" class="text-center">No se encontraron datos para la búsqueda realizada.</td></tr>`;
+                $('#tablePrec1 tbody').append(filaVacia);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Error al cargar el detalle del viaje", textStatus, errorThrown, jqXHR);
+            // Manejar adecuadamente el error <td>${formatoHora2(viaje.fechaPart)}</td>
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    misViajesActive();
+    misViajesInactive();
+    // generarFormulario(); // Genera e inserta el formulario al cargar la página
+});
+function recortarTexto(texto, longitudMax) {
+    if (texto.length > longitudMax) {
+        return texto.substring(0, longitudMax) + '...';
+    } else {
+        return texto;
+    }
+}
+function formatoHora(fechaHoraGMT) {
+    // Extraer la hora y los minutos directamente de la cadena
+    const partes = fechaHoraGMT.match(/(\d{2}):(\d{2}):(\d{2})/);
+    let horas = parseInt(partes[1], 10);
+    let minutos = partes[2];
+    // Determinar AM o PM
+    const ampm = horas >= 12 ? 'pm' : 'am';
+    // Convertir el formato de 24h a 12h
+    horas = horas % 12;
+    horas = horas ? horas : 12; // El operador ternario maneja el caso de horas = 0
+    // Construir la cadena de tiempo formateada
+    const tiempoFormateado = horas + ':' + minutos + ' ' + ampm;
+    return tiempoFormateado;
+}
+function formatoHora2(fechaHoraGMT) {
+    // Crea un objeto moment con la fecha en GMT
+    let fechaMoment = moment(fechaHoraGMT, 'ddd, DD MMM YYYY HH:mm:ss GMT');
+    // Formatea la fecha al estilo español
+    let fechaFormateada = fechaMoment.format('dddd D [de] MMMM, h:mm a'); // 'a' es para AM/PM
+    return fechaFormateada;
+}
+import { dominio } from '../js/validador.js';

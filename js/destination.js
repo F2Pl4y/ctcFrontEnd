@@ -194,71 +194,7 @@ function cargarDetalleViaje(viajeID) {
             <div class="form-col">
               <!-- INICIO: modal del tipo de carro -->
               <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">DATOS ADICIONALES</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <!-- CUERPO DEL MODAL -->
-                      <div class="form-group">
-                        <label>TIPO</label>
-                        <!-- <button type="button" class="btn btn-outline-secondary">Tipo</button> -->
-                        <select class="custom-select custom-select-lg ">
-                          <option value="1">Propio</option>
-                          <option value="2">Alquilado</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>FABRICANTE</label>
-                        <select class="custom-select custom-select-lg form-control" id="exampleInputEmail1">
-                          <option value="1">Alfa romero</option>
-                          <option value="2">Audi</option>
-                          <option value="2">bently</option>
-                          <option value="2">DBW</option>
-                          <option value="2">Audi</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>AÑO</label>
-                        <select class="custom-select custom-select-lg form-control" id="exampleInputEmail1">
-                          <option value="1">2023</option>
-                          <option value="2">2022</option>
-                          <option value="3">2021</option>
-                          <option value="3">2020</option>
-                          <option value="3">2019</option>
-                          <option value="3">2018</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>COLOR DEL CARRO</label>
-                        <input type="color" class="form-control" id="colorPicker">
-                      </div>
-                      <div class="form-group">
-                        <label>PLACA</label>
-                        <input type="text" class="form-control" id="colorPicker">
-                      </div>
-                      <div class="form-group">
-                        <label>Foto del conductor</label>
-                        <div class="col mb-3 d-flex justify-content-center align-items-center text-center">
-                          <img id="imagePreview" class="img-fluid" alt="adjuntar imagen" style="max-height: 30vh;min-width: 50px;">
-                        </div>
-                        <div class="col mb-3">
-                          <input type="file" class="form-control-file " id="exampleFormControlFile1" onchange="previewImage()">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               <!-- FIN: modal del tipo de carro -->
               <!-- Agrega esto en tu formulario para crear pestañas -->
               <div class="col-md-12 mb-3">
